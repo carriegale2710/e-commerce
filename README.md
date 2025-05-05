@@ -4,15 +4,18 @@
 
 ## Links
 
+---
+
 - Trello Board: https://trello.com/invite/b/681442690fd3e2409395c65f/ATTI5213dd5bf137b3aa1c71bbdb0d5b846130ABFD1D/e-commerce-13th-may
 
 - Figma Mockups: https://www.figma.com/design/ygYxZp3P5Ly93cxN0C6lNc/E-commerce?node-id=0-1&t=RniU748WGmmkonOs-1
 
-## Project Brief
+- Project Brief: https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md
 
-https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md
+# Project Outline
 
-Outline
+---
+
 This project is designed to reinforce your React learnings and make sure that you are comfortable with most aspect of the framework. With this project you will practice how to:
 
 - Trello Board: https://trello.com/invite/b/681442690fd3e2409395c65f/ATTI5213dd5bf137b3aa1c71bbdb0d5b846130ABFD1D/e-commerce-13th-may
