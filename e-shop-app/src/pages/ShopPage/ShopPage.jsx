@@ -1,4 +1,5 @@
 import React from "react";
+import ProductList from "../../components/ProductList/ProductList";
 import classes from "./ShopPage.module.scss";
 
 const ShopPage = () => {
@@ -11,6 +12,7 @@ const ShopPage = () => {
       </p>
       <h2>MVP</h2>
       <p>Grid of products</p>
+      <ProductList />
       <h2>Bonus</h2>
       <p>
         Bonus - have an short button 'Add to card' available on the thumbnail of
