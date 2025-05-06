@@ -3,10 +3,16 @@ import classes from "./HomePage.module.scss";
 
 const HomePage = () => {
   return (
-    <main className="classes.container">
-      <h1>Home Page</h1>
-      <p>Introduce the website here</p>
-    </main>
+    <>
+      <header className="classes.header">
+        <h1>Welcome</h1>
+        <p>Introduce the website here</p>
+      </header>
+      <main className="classes.main">
+        <h2>Featured Products</h2>
+        <p>Some products, imagery here</p>
+      </main>
+    </>
   );
 };
 

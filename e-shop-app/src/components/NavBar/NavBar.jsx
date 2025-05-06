@@ -1,8 +1,9 @@
 import { NavLink } from "react-router";
+import classes from "./NavBar.module.scss";
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className={classes.container}>
       <div>
         <NavLink to="/" end>
           Home
