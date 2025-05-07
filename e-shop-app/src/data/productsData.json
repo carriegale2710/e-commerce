@@ -1,0 +1,418 @@
+{
+  "products": [
+    {
+      "id": "rare-kind-words-matte",
+      "name": "Kind Words Matte Lipstick • 2g",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-kind-words-matte-lipstick/",
+      "productType": "lipstick",
+      "variants": [
+        "Worthy",
+        "Bold",
+        "Fun",
+        "Strong",
+        "Gifted",
+        "Wise",
+        "Creative",
+        "Humble",
+        "Talented",
+        "Devoted"
+      ],
+      "price": 36.0,
+      "imgURL": [
+        "./worthy",
+        "./bold",
+        "./fun",
+        "./strong",
+        "./gifted",
+        "./wise",
+        "./creative",
+        "./humble",
+        "./talented",
+        "./devoted"
+      ],
+      "stock": [12, 8, 15, 6, 10, 9, 7, 14, 11, 5],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Cream, Stick",
+        "benefits": "Long-wearing, Comfortable, Nourishing",
+        "whatItIs": "A weightless, ultra-comfortable matte lipstick that hugs lips with nourishing color that lasts all day.",
+        "whatItDoes": "This buttery-soft, weightless lipstick delivers color that feels good on your lips. The nourishing formula has a soft-touch finish that won't flake or crack and stays put all day. Enriched with a botanical blend of lotus, gardenia, and white waterlily to help soothe, calm, and nourish lips."
+      }
+    },
+    {
+      "id": "natasha-denona-need-nude",
+      "name": "I Need A Nude Lipstick • 3.5g",
+      "productURL": "https://www.sephora.com.au/products/natasha-denona-i-need-a-nude-lipstick/v/1b-charlotte",
+      "productType": "lipstick",
+      "variants": [
+        "1B Charlotte",
+        "2B Averyl",
+        "3B Naya",
+        "4B Sami",
+        "5B Nati",
+        "6B Judith"
+      ],
+      "price": 45.0,
+      "imgURL": [
+        "./charlotte",
+        "./averyl",
+        "./naya",
+        "./sami",
+        "./nati",
+        "./judith"
+      ],
+      "stock": [7, 9, 14, 5, 11, 8],
+      "description": {
+        "finish": "Cream, Natural",
+        "formulation": "Cream, Stick",
+        "benefits": "Hydrating, Comfortable",
+        "whatItIs": "A creamy, hydrating lipstick in a range of universally flattering nude shades designed to complement various skin tones.",
+        "whatItDoes": "This luxurious lipstick formula offers medium to full coverage with a smooth, creamy finish. Enriched with nourishing oils and waxes to keep lips comfortable and hydrated throughout wear. The sophisticated nude shades were carefully developed to enhance the natural beauty of lips."
+      }
+    },
+    {
+      "id": "guerlain-kisskiss-tender-matte",
+      "name": "KissKiss Lips Tender Matte Lipstick • 2.8g",
+      "productURL": "https://www.sephora.com.au/products/guerlain-kisskiss-tender-matte-lipstick/",
+      "productType": "lipstick",
+      "variants": [
+        "No. 219 Tender Rose",
+        "No. 224 Spicy Pink",
+        "No. 501 Tender Coral",
+        "No. 513 Tender Nude",
+        "No. 515 Tender Rosewood",
+        "No. 517 Tender Brown"
+      ],
+      "price": 65.0,
+      "imgURL": [
+        "./tenderRose",
+        "./spicyPink",
+        "./tenderCoral",
+        "./tenderNude",
+        "./tenderRosewood",
+        "./tenderBrown"
+      ],
+      "stock": [10, 13, 6, 9, 11, 8],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Cream, Stick",
+        "benefits": "Hydrating, Long-wearing, Comfortable",
+        "whatItIs": "A luxurious matte lipstick with a tender, comfortable formula that protects and hydrates lips while delivering rich color.",
+        "whatItDoes": "This premium matte lipstick combines the elegance of Guerlain with the comfort of a nourishing lip treatment. The creamy formula glides on effortlessly, delivering intense color with a velvety matte finish that never feels dry. Infused with hyaluronic acid and shea butter to hydrate and protect lips throughout wear."
+      }
+    },
+    {
+      "id": "clinique-almost-lipstick",
+      "name": "Almost Lipstick • 1.9g",
+      "productURL": "https://www.sephora.com.au/products/clinique-almost-lipstick/",
+      "productType": "lipstick",
+      "variants": ["Black Honey", "Pink Honey", "Black Maple", "Spiced Honey"],
+      "price": 45.0,
+      "imgURL": [
+        "./blackHoney",
+        "./pinkHoney",
+        "./blackMaple",
+        "./spicedHoney"
+      ],
+      "stock": [15, 8, 12, 10],
+      "description": {
+        "finish": "Sheer, Glossy",
+        "formulation": "Balm, Stick",
+        "benefits": "Moisturizing, Buildable",
+        "whatItIs": "A cult-favorite sheer lipstick that enhances your natural lip color with a hint of tint and glossy shine.",
+        "whatItDoes": "This translucent formula adapts to your unique chemistry, creating a custom shade that's perfect for you. The sheer color can be built up for more intensity or worn as a subtle wash. The moisturizing formula keeps lips comfortable, while the glossy finish gives a youthful appearance without the stickiness of a gloss."
+      }
+    },
+    {
+      "id": "rare-beauty-lip-souffle",
+      "name": "Lip Souffle Matte Lip Cream • 2.7ml",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-lip-souffle-matte-lip-cream/v/ascend",
+      "productType": "lipstick",
+      "variants": [
+        "Ascend",
+        "Courage",
+        "Brave",
+        "Inspire",
+        "Heroic",
+        "Confident",
+        "Energize",
+        "Transform"
+      ],
+      "price": 34.0,
+      "imgURL": [
+        "./ascend",
+        "./courage",
+        "./brave",
+        "./inspire",
+        "./heroic",
+        "./confident",
+        "./energize",
+        "./transform"
+      ],
+      "stock": [9, 12, 7, 15, 6, 11, 8, 10],
+      "description": {
+        "finish": "Matte, Velvety",
+        "formulation": "Cream, Liquid",
+        "benefits": "Lightweight, Long-wearing, Comfortable",
+        "whatItIs": "A weightless air-whipped lip cream that delivers rich color with a velvet-matte finish.",
+        "whatItDoes": "This innovative formula feels like a soufflé for your lips—light, airy, and comfortable. The velvety texture melts into lips, delivering intense color without feeling heavy or drying. Infused with a botanical blend of lotus, gardenia, and white waterlily to nourish lips while providing all-day wear."
+      }
+    },
+    {
+      "id": "gxve-im-still-here-liquid-lipstick",
+      "name": "I'm Still Here Lightweight Longwear Matte Liquid Lipstick • 4ml",
+      "productURL": "https://www.sephora.com.au/products/gxve-by-gwen-stefani-im-still-here-lightweight-longwear-matte-liquid-lipstick/v/camo-cool-beige",
+      "productType": "lipstick",
+      "variants": [
+        "Camo (Cool Beige)",
+        "Original Recipe (Brick Red)",
+        "Spicy (Warm Terracotta)",
+        "Tragic Melon (Bright Coral)",
+        "Bubble Pop Electric (Vibrant Pink)"
+      ],
+      "price": 40.0,
+      "imgURL": [
+        "./camo",
+        "./originalRecipe",
+        "./spicy",
+        "./tragicMelon",
+        "./bubblePopElectric"
+      ],
+      "stock": [8, 11, 15, 6, 10],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Liquid",
+        "benefits": "Longwear, Transfer-proof, Lightweight",
+        "whatItIs": "A lightweight, longwear matte liquid lipstick that delivers high-impact color with up to 16 hours of wear.",
+        "whatItDoes": "This ultra-lightweight liquid lipstick delivers bold, saturated color that truly lasts all day. The innovative formula dries down to a comfortable matte finish that won't crack, feather, or transfer. Designed to feel weightless on the lips while providing intense pigmentation and staying power."
+      }
+    },
+    {
+      "id": "tarte-maracuja-juicy-lip",
+      "name": "Maracuja Juicy Lip • 2.8ml",
+      "productURL": "https://www.sephora.com.au/products/tarte-maracuja-juicy-lip/",
+      "productType": "lipstick",
+      "variants": [
+        "Pink Sands",
+        "Clear",
+        "Rose",
+        "Orchid",
+        "Hibiscus",
+        "Ruby",
+        "Cherry",
+        "Coconut"
+      ],
+      "price": 35.0,
+      "imgURL": [
+        "./pinkSands",
+        "./clear",
+        "./rose",
+        "./orchid",
+        "./hibiscus",
+        "./ruby",
+        "./cherry",
+        "./coconut"
+      ],
+      "stock": [12, 9, 14, 7, 11, 8, 5, 10],
+      "description": {
+        "finish": "Glossy, Hydrated",
+        "formulation": "Balm, Gloss",
+        "benefits": "Hydrating, Plumping, Sheer Color",
+        "whatItIs": "A hydrating lip treatment that delivers the shine of a gloss, the care of a balm, and a kiss of juicy color.",
+        "whatItDoes": "This multi-tasking lip product combines the best of skincare and makeup in one luxurious formula. Maracuja oil and grapeseed extract hydrate and smooth lips while adding a sheer wash of color and glass-like shine. The cushiony texture feels comfortable on lips and provides a subtle plumping effect without any sting."
+      }
+    },
+    {
+      "id": "huda-beauty-easy-blur-foundation",
+      "name": "Easy Blur Natural Airbrush Foundation • 29ml",
+      "productURL": "https://www.sephora.com.au/products/huda-beauty-easy-blur-natural-airbrush-foundation/v/100b-milkshake",
+      "productType": "foundation",
+      "variants": [
+        "100B Milkshake",
+        "110N Angel Food",
+        "120B Vanilla",
+        "130N Coconut Cream",
+        "140G Shortbread"
+      ],
+      "price": 65.0,
+      "imgURL": [
+        "./milkshake",
+        "./angelFood",
+        "./vanilla",
+        "./coconutCream",
+        "./shortbread"
+      ],
+      "stock": [15, 9, 12, 8, 20],
+      "description": {
+        "finish": "Natural, Semi-Matte",
+        "formulation": "Liquid",
+        "benefits": "Lightweight, Blurring, Medium Coverage",
+        "whatItIs": "A high-performance, natural finish foundation that feels weightless on skin and creates an airbrushed effect.",
+        "whatItDoes": "This innovative foundation uses Blur Technology to instantly diffuse imperfections while looking completely natural. The buildable medium coverage formula blends effortlessly into skin for a second-skin look that lasts all day. Suitable for all skin types, it's enriched with hyaluronic acid and vitamin E to nourish and hydrate skin while providing flawless coverage."
+      }
+    },
+    {
+      "id": "fenty-beauty-eaze-drop-skin-tint",
+      "name": "Eaze Drop Blurring Skin Tint Foundation • 32ml",
+      "productURL": "https://www.sephora.com.au/products/fenty-beauty-eaze-drop-blurring-skin-tint-foundation/v/1",
+      "productType": "foundation",
+      "variants": ["1", "2", "3", "4", "5"],
+      "price": 52.0,
+      "imgURL": ["./shade1", "./shade2", "./shade3", "./shade4", "./shade5"],
+      "stock": [18, 12, 9, 15, 7],
+      "description": {
+        "finish": "Natural, Soft-Blur",
+        "formulation": "Liquid, Skin Tint",
+        "benefits": "Lightweight, Blurring, Humidity-Resistant",
+        "whatItIs": "A light-coverage, easy-to-apply skin tint that instantly blurs pores and evens skin tone with a natural, soft-blur finish.",
+        "whatItDoes": "This buildable, light-to-medium coverage skin tint smooths the look of pores, evens skin tone, and fights shine without the feel of a typical foundation. The QuickBlur complex creates a soft-focus effect while the humidity-resistant formula ensures long-lasting wear. Perfect for a quick application and easy to build for more coverage where needed."
+      }
+    },
+    {
+      "id": "huda-beauty-creamy-kohl-eyeliner",
+      "name": "Creamy Kohl Longwear Eye Pencil • 1.5g",
+      "productURL": "https://www.sephora.com.au/products/huda-beauty-creamy-kohl-longwear-eye-pencil/",
+      "productType": "eyeliner",
+      "variants": ["Vanta Black", "Jet Black", "Inked", "Smokey Brown"],
+      "price": 39.0,
+      "imgURL": ["./vantaBlack", "./jetBlack", "./inked", "./smokeyBrown"],
+      "stock": [15, 8, 12, 7],
+      "description": {
+        "finish": "Creamy, Semi-Matte",
+        "formulation": "Pencil",
+        "benefits": "Long-wearing, Smudge-resistant, Waterproof",
+        "whatItIs": "A creamy, ultra-pigmented kohl eyeliner pencil that glides on smoothly and stays put for up to 12 hours.",
+        "whatItDoes": "This versatile eye pencil delivers intense color payoff with a velvety smooth application. The creamy formula allows for easy blending immediately after application, then sets to a budge-proof finish that won't smudge, transfer, or fade. Perfect for creating precise lines, smoky eyes, or as a base for eyeshadow."
+      }
+    },
+    {
+      "id": "anastasia-beverly-hills-liquid-eyeliner",
+      "name": "Liquid Eyeliner • 3ml",
+      "productURL": "https://www.sephora.com.au/products/anastasia-beverly-hills-liquid-eyeliner/",
+      "productType": "eyeliner",
+      "variants": ["Jet Black", "Dark Brown", "Elegant Navy"],
+      "price": 45.0,
+      "imgURL": ["./jetBlack", "./darkBrown", "./elegantNavy"],
+      "stock": [12, 9, 7],
+      "description": {
+        "finish": "Satin, High-Shine",
+        "formulation": "Liquid",
+        "benefits": "Waterproof, Long-lasting, Precise Application",
+        "whatItIs": "A high-pigment, waterproof liquid eyeliner with a precision brush tip for effortless application.",
+        "whatItDoes": "This intense liquid liner features a fine-tip brush applicator that delivers smooth, even color with ultimate precision. The quick-drying, waterproof formula resists smudging, flaking, and fading for up to 12 hours. The ultra-fine brush tip allows you to create anything from delicate, thin lines to bold, dramatic strokes with complete control."
+      }
+    },
+    {
+      "id": "rare-beauty-perfect-strokes-gel-eyeliner",
+      "name": "Perfect Strokes Longwear Gel Eyeliner • 0.35g",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-perfect-strokes-longwear-gel-eyeliner/",
+      "productType": "eyeliner",
+      "variants": ["True Black", "Rich Black Brown", "Deep Navy", "Deep Mauve"],
+      "price": 32.0,
+      "imgURL": [
+        "./trueBlack",
+        "./richBlackBrown",
+        "./deepNavy",
+        "./deepMauve"
+      ],
+      "stock": [14, 9, 11, 6],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Gel Pencil",
+        "benefits": "Waterproof, Smudge-proof, Long-wearing",
+        "whatItIs": "A waterproof gel eyeliner pencil that delivers the smooth glide of a gel with the precision of a pencil.",
+        "whatItDoes": "This creamy gel pencil eyeliner delivers intense color payoff that glides on smoothly without skipping or tugging. The waterproof formula sets in place for up to 12 hours of wear without smudging or transferring. Perfect for creating precise lines along the lashline or waterline. Formulated with a botanical blend of lotus, gardenia, and white water lily to nourish the delicate eye area."
+      }
+    },
+    {
+      "id": "rare-beauty-perfect-strokes-liquid-eyeliner",
+      "name": "Perfect Strokes Matte Liquid Eye Liner • 0.55ml",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-perfect-strokes-matte-liquid-eye-liner/",
+      "productType": "eyeliner",
+      "variants": ["Black", "Brown"],
+      "price": 34.0,
+      "imgURL": ["./black", "./brown"],
+      "stock": [18, 12],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Liquid",
+        "benefits": "Easy Application, Long-lasting, Waterproof",
+        "whatItIs": "A matte black liquid eyeliner with a flexible brush tip for ultimate precision and up to 12 hours of waterproof wear.",
+        "whatItDoes": "This innovative liquid liner features over 1,000 vegan bristles in a custom brush tip that flexes against your lash line for the most precise application. The quick-drying, waterproof formula delivers saturated matte color that stays put all day without fading, flaking, or smudging. Perfect for creating anything from subtle definition to dramatic cat eyes."
+      }
+    },
+    {
+      "id": "huda-beauty-creamy-kohl-eyeliner",
+      "name": "Creamy Kohl Longwear Eye Pencil • 1.5g",
+      "productURL": "https://www.sephora.com.au/products/huda-beauty-creamy-kohl-longwear-eye-pencil/",
+      "productType": "eyeliner",
+      "variants": ["Vanta Black", "Jet Black", "Inked", "Smokey Brown"],
+      "price": 39.0,
+      "imgURL": ["./vantaBlack", "./jetBlack", "./inked", "./smokeyBrown"],
+      "stock": [15, 8, 12, 7],
+      "description": {
+        "finish": "Creamy, Semi-Matte",
+        "formulation": "Pencil",
+        "benefits": "Long-wearing, Smudge-resistant, Waterproof",
+        "whatItIs": "A creamy, ultra-pigmented kohl eyeliner pencil that glides on smoothly and stays put for up to 12 hours.",
+        "whatItDoes": "This versatile eye pencil delivers intense color payoff with a velvety smooth application. The creamy formula allows for easy blending immediately after application, then sets to a budge-proof finish that won't smudge, transfer, or fade. Perfect for creating precise lines, smoky eyes, or as a base for eyeshadow."
+      }
+    },
+    {
+      "id": "anastasia-beverly-hills-liquid-eyeliner",
+      "name": "Liquid Eyeliner • 3ml",
+      "productURL": "https://www.sephora.com.au/products/anastasia-beverly-hills-liquid-eyeliner/",
+      "productType": "eyeliner",
+      "variants": ["Jet Black", "Dark Brown", "Elegant Navy"],
+      "price": 45.0,
+      "imgURL": ["./jetBlack", "./darkBrown", "./elegantNavy"],
+      "stock": [12, 9, 7],
+      "description": {
+        "finish": "Satin, High-Shine",
+        "formulation": "Liquid",
+        "benefits": "Waterproof, Long-lasting, Precise Application",
+        "whatItIs": "A high-pigment, waterproof liquid eyeliner with a precision brush tip for effortless application.",
+        "whatItDoes": "This intense liquid liner features a fine-tip brush applicator that delivers smooth, even color with ultimate precision. The quick-drying, waterproof formula resists smudging, flaking, and fading for up to 12 hours. The ultra-fine brush tip allows you to create anything from delicate, thin lines to bold, dramatic strokes with complete control."
+      }
+    },
+    {
+      "id": "rare-beauty-perfect-strokes-gel-eyeliner",
+      "name": "Perfect Strokes Longwear Gel Eyeliner • 0.35g",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-perfect-strokes-longwear-gel-eyeliner/",
+      "productType": "eyeliner",
+      "variants": ["True Black", "Rich Black Brown", "Deep Navy", "Deep Mauve"],
+      "price": 32.0,
+      "imgURL": [
+        "./trueBlack",
+        "./richBlackBrown",
+        "./deepNavy",
+        "./deepMauve"
+      ],
+      "stock": [14, 9, 11, 6],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Gel Pencil",
+        "benefits": "Waterproof, Smudge-proof, Long-wearing",
+        "whatItIs": "A waterproof gel eyeliner pencil that delivers the smooth glide of a gel with the precision of a pencil.",
+        "whatItDoes": "This creamy gel pencil eyeliner delivers intense color payoff that glides on smoothly without skipping or tugging. The waterproof formula sets in place for up to 12 hours of wear without smudging or transferring. Perfect for creating precise lines along the lashline or waterline. Formulated with a botanical blend of lotus, gardenia, and white water lily to nourish the delicate eye area."
+      }
+    },
+    {
+      "id": "rare-beauty-perfect-strokes-liquid-eyeliner",
+      "name": "Perfect Strokes Matte Liquid Eye Liner • 0.55ml",
+      "productURL": "https://www.sephora.com.au/products/rare-beauty-perfect-strokes-matte-liquid-eye-liner/",
+      "productType": "eyeliner",
+      "variants": ["Black", "Brown"],
+      "price": 34.0,
+      "imgURL": ["./black", "./brown"],
+      "stock": [18, 12],
+      "description": {
+        "finish": "Matte",
+        "formulation": "Liquid",
+        "benefits": "Easy Application, Long-lasting, Waterproof",
+        "whatItIs": "A matte black liquid eyeliner with a flexible brush tip for ultimate precision and up to 12 hours of waterproof wear.",
+        "whatItDoes": "This innovative liquid liner features over 1,000 vegan bristles in a custom brush tip that flexes against your lash line for the most precise application. The quick-drying, waterproof formula delivers saturated matte color that stays put all day without fading, flaking, or smudging. Perfect for creating anything from subtle definition to dramatic cat eyes."
+      }
+    }
+  ]
+}

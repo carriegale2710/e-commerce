@@ -17,18 +17,6 @@ export const getProducts = async () => {
 
 export const addSampleProducts = async () => {
   const products = [
-    {
-      name: "Liquid Foundation",
-      price: 29.99,
-      color: "Ivory",
-      thumbnail: "https://example.com/foundation.jpg",
-    },
-    {
-      name: "Matte Lipstick",
-      price: 19.99,
-      color: "Ruby Red",
-      thumbnail: "https://example.com/lipstick.jpg",
-    },
     // Add more products as needed
   ];
 
@@ -38,3 +26,6 @@ export const addSampleProducts = async () => {
     await addDoc(productsRef, product);
   }
 };
+
+//firestore link:
+//https://console.firebase.google.com/u/0/project/carries-firebase/firestore/databases/-default-/data/~2Fproducts~2FVbKECzzYpbnbyuVBlaNA

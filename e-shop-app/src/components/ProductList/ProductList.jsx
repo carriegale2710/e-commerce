@@ -15,8 +15,9 @@ const ProductList = () => {
     setLoading(true);
     try {
       const data = await getProducts();
-      setProducts(data);
       console.log("Fetched products:", data);
+      setProducts(data);
+      console.log("Set products:", products); //products data JSON string
     } catch (err) {
       setError(err.message);
       console.error("Error:", err);
@@ -24,19 +25,19 @@ const ProductList = () => {
     setLoading(false);
   };
 
-  const handleAddSamples = async () => {
-    try {
-      await addSampleProducts();
-      fetchProducts(); // Refresh the list after adding
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  // const handleAddSamples = async () => {
+  //   try {
+  //     await addSampleProducts();
+  //     fetchProducts(); // refresh the list after adding
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
 
   return (
     <div>
       <h2>Test Products</h2>
-      <button onClick={handleAddSamples}>Add Sample Products</button>
+      {/* <button onClick={handleAddSamples}>Add Sample Products</button> */}
       <button onClick={fetchProducts}>Fetch Products</button>
 
       {loading && <p>Loading...</p>}
@@ -45,34 +46,6 @@ const ProductList = () => {
       <pre>{JSON.stringify(products, null, 2)}</pre>
     </div>
   );
-
-  // const [products, setProducts] = useState([]);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const fetchProducts = async () => {
-  //     try {
-  //       const productsData = await getProducts();
-  //       setProducts(productsData);
-  //     } catch (error) {
-  //       console.error("Error fetching products:", error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchProducts();
-  // }, []);
-
-  // if (loading) return <div>Loading...</div>;
-
-  // return (
-  //   <div className={classes.container}>
-  //     {products.map((product) => (
-  //       <ProductCard key={product.id} {...product} />
-  //     ))}
-  //   </div>
-  // );
 };
 
 export default ProductList;
