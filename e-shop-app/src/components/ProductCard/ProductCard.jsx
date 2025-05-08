@@ -31,12 +31,14 @@ const ProductCard = ({ productData }) => {
       <p>{productData.name}</p>
       <p>Product Type: {productData.productType}</p>
       <p>Rating: {productData.rating}</p>
-      {productData.imgURL.map((img) => {
-        <a href={img}>Image Link </a>;
-      })}
-      {productData.variants.map((v) => {
-        <p>Shade: {v}</p>;
-      })}
+      {productData.imgURL.map((img) => (
+        <a key={`img-${img}`} href={img}>
+          Image Link{" "}
+        </a>
+      ))}
+      {productData.variants.map((v) => (
+        <p key={`variant-${v}`}>Shade: {v}</p>
+      ))}
       <p>${productData.price.toFixed(2)}</p>
       {/* <p>{productData.description}</p> */}
       <button onClick={handleClick}>Add to Cart</button>

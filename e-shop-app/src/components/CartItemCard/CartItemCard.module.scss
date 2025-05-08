@@ -7,3 +7,30 @@
   padding: 10px;
   margin: 10px;
 }
+
+.card {
+  height: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  text-wrap: inherit;
+  border: 2px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+
+.details {
+  height: auto;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  text-wrap: inherit;
+  padding: 10px;
+  margin: 10px;
+}
