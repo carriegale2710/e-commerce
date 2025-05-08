@@ -4,23 +4,17 @@ import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({ productData }) => {
   //console.log(productData);
-  //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants,
+  //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants
 
-  // const addToCart = (itemId) => {
-  //   if (cart.includes("empty")) {
-  //     cart.pop(cart[0]);
-  //   }
-  //   console.log(`Adding to cart: ${productData.id}`);
-  //   cart.push(productData.id);
-  //   setCart(cart);
-  //   console.log(`Updated Cart: ${cart}`);
-  // };
-
+  const [selectedVariant, setSelectedVariant] = useState(0);
   const { addToCart } = useContext(CartContext);
+
   const handleClick = () => {
     console.log("clicked");
-    // addToCart(productData);
-    addToCart(productData);
+    const success = addToCart(productData, selectedVariant);
+    if (!success) {
+      alert("sorry, outof stock");
+    }
   };
 
   return (

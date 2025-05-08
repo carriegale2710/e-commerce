@@ -10,10 +10,9 @@
 
 .card {
   height: auto;
-  width: 400px;
+  width: 200px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
   text-wrap: inherit;
@@ -23,14 +22,15 @@
 }
 
 .details {
-  height: auto;
-  width: 400px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
   text-wrap: inherit;
   padding: 10px;
-  margin: 10px;
+}
+
+.button {
+  width: auto;
+  height: 50px;
 }

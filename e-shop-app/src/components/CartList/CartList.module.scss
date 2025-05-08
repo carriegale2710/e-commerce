@@ -1,9 +1,17 @@
 .container {
   display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  align-self: center;
 }
 
 .grid {
