@@ -1,8 +1,5 @@
 import { useState, useEffect, addDoc } from "react";
-import {
-  getProducts,
-  addSampleProducts,
-} from "../../services/product-services";
+import { getProducts } from "../../services/product-services";
 import ProductCard from "../ProductCard/ProductCard";
 import classes from "./ProductList.module.scss";
 
@@ -25,25 +22,26 @@ const ProductList = () => {
     setLoading(false);
   };
 
-  // const handleAddSamples = async () => {
-  //   try {
-  //     await addSampleProducts();
-  //     fetchProducts(); // refresh the list after adding
-  //   } catch (err) {
-  //     setError(err.message);
-  //   }
-  // };
+  console.log(products);
+
+  const JSONstring = JSON.stringify(products, null, 2);
+  //console.log(JSONstring);
 
   return (
     <div>
       <h2>Test Products</h2>
-      {/* <button onClick={handleAddSamples}>Add Sample Products</button> */}
       <button onClick={fetchProducts}>Fetch Products</button>
 
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
-      <pre>{JSON.stringify(products, null, 2)}</pre>
+      <pre className={classes.card}>{JSONstring}</pre>
+      <section className={classes.grid}>
+        {products.map((product) => {
+          //console.log(`Loading ${product.name}`);
+          return <ProductCard key={product.id} productData={product} />;
+        })}
+      </section>
     </div>
   );
 };

@@ -1,14 +1,45 @@
-import React from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import classes from "./ProductCard.module.scss";
 
-const ProductCard = ({ name, price, color }) => {
+const ProductCard = ({ productData }) => {
+  //console.log(productData);
+  //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants,
+
+  // const addToCart = (itemId) => {
+  //   if (cart.includes("empty")) {
+  //     cart.pop(cart[0]);
+  //   }
+  //   console.log(`Adding to cart: ${productData.id}`);
+  //   cart.push(productData.id);
+  //   setCart(cart);
+  //   console.log(`Updated Cart: ${cart}`);
+  // };
+
+  const { addToCart } = useContext(CartContext);
+  const handleClick = () => {
+    console.log("clicked");
+    // addToCart(productData);
+    addToCart(productData);
+  };
+
   return (
     <div className={classes.container}>
-      <h2>{name}</h2>
-      <p>image here</p>
-      <p>{price.toFixed(2)}</p>
-      <p>{color}</p>
-      <button>Add to Cart</button>
+      <a href={productData.productURL}>
+        <h3>{productData.name}</h3>
+      </a>
+      <p>{productData.name}</p>
+      <p>Product Type: {productData.productType}</p>
+      <p>Rating: {productData.rating}</p>
+      {productData.imgURL.map((img) => {
+        <a href={img}>Image Link </a>;
+      })}
+      {productData.variants.map((v) => {
+        <p>Shade: {v}</p>;
+      })}
+      <p>${productData.price.toFixed(2)}</p>
+      {/* <p>{productData.description}</p> */}
+      <button onClick={handleClick}>Add to Cart</button>
     </div>
   );
 };
