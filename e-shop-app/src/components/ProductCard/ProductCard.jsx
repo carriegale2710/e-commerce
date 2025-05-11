@@ -2,21 +2,21 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import classes from "./ProductCard.module.scss";
 
-const ProductCard = ({ productData }) => {
+const ProductCard = ({ productInfo }) => {
   //console.log(productData);
   //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants
 
   const [selectedVariant, setSelectedVariant] = useState(0);
   //const [isFavorited, setIsFavorited] = useState(false);
   const { addToCart, updateFavorited, favsList } = useContext(CartContext);
-  const isFavorited = favsList.includes(productData.id);
+  const isFavorited = favsList.includes(productInfo.id);
 
   //for add to cart button click
   const handleClick = () => {
     console.log("addtocart clicked");
-    const success = addToCart(productData, selectedVariant);
+    const success = addToCart(productInfo, selectedVariant);
     if (!success) {
-      alert("sorry, outof stock");
+      alert("sorry, out of stock");
     }
   };
 
@@ -30,26 +30,26 @@ const ProductCard = ({ productData }) => {
     }
     //setIsFavorited(!isFavorited);
     //add favoriteItem function from context here
-    updateFavorited(productData.id);
+    updateFavorited(productInfo.id);
   };
 
   return (
     <div className={classes.container}>
-      <a href={productData.productURL}>
-        <h3>{productData.name}</h3>
+      <a href={productInfo.productURL}>
+        <h3>{productInfo.name}</h3>
       </a>
-      <p>{productData.name}</p>
-      <p>Product Type: {productData.productType}</p>
-      <p>Rating: {productData.rating}</p>
-      {productData.imgURL.map((img) => (
+      <p>{productInfo.name}</p>
+      <p>Product Type: {productInfo.productType}</p>
+      <p>Rating: {productInfo.rating}</p>
+      {productInfo.imgURL.map((img) => (
         <a key={`img-${img}`} href={img}>
           Image Link{" "}
         </a>
       ))}
-      {productData.variants.map((v) => (
+      {productInfo.variants.map((v) => (
         <p key={`variant-${v}`}>Shade: {v}</p>
       ))}
-      <p>${productData.price.toFixed(2)}</p>
+      <p>${productInfo.price.toFixed(2)}</p>
       {/* <p>{productData.description}</p> */}
       <button onClick={handleClick}>Add to Cart</button>
       <button
