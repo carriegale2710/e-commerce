@@ -6,11 +6,13 @@
 
 ---
 
-- Trello Board: https://trello.com/invite/b/681442690fd3e2409395c65f/ATTI5213dd5bf137b3aa1c71bbdb0d5b846130ABFD1D/e-commerce-13th-may
+- [Firestore link](https://console.firebase.google.com/u/0/project/carries-firebase/firestore/databases/-default-/data/~2Fproducts~2FVbKECzzYpbnbyuVBlaNA)
 
-- Figma Mockups: https://www.figma.com/design/ygYxZp3P5Ly93cxN0C6lNc/E-commerce?node-id=0-1&t=RniU748WGmmkonOs-1
+- [Trello Board](https://trello.com/invite/b/681442690fd3e2409395c65f/ATTI5213dd5bf137b3aa1c71bbdb0d5b846130ABFD1D/e-commerce-13th-may)
 
-- Project Brief: https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md
+- [Figma Mockups](https://www.figma.com/design/ygYxZp3P5Ly93cxN0C6lNc/E-commerce?node-id=0-1&t=RniU748WGmmkonOs-1)
+
+- [Project Brief](https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md)
 
 # Project Outline
 

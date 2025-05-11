@@ -1,49 +1,80 @@
 import React, { createContext, useState } from "react";
-
-export const CartContext = createContext();
+export const CartContext = createContext(); //context shared across entire pp
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(["empty"]);
+  //state management
+  const [cart, setCart] = useState([]);
+  //console.log(`Current Cart: ${cart.map((item) => item.id)}`);
   const [favsList, setFavsList] = useState([]);
-
-  console.log(`Current Cart: ${cart.map((item) => item.id)}`);
   //console.log(`Current FavsList: ${favsList.map((item) => item.id)}`);
 
-  /* addToCart: 
-    1.check item already exists in array, -> use find() with specific product id
-    2.if yes just increment the qty prop by 1 -> spread and update the qty prop
+  /*NOTE - stock checker function: 
+  1. You should not be able to add more items than are in stock to the cart
+  2. Should run whenever user attempts to add a product variant to the cart
+  */
+  const checkStockAvailability = (productItem, selectedVariant) => {
+    const numOfItemsInCart = cart.filter(
+      (item) =>
+        item.id === productItem.id && item.selectedVariant === selectedVariant
+    ).length;
+
+    //- needs to check if the qty =< stock for the selectedVariant
+    // if number of items for THAT SPECIFIC VARIANT existing in cart EXCEEDS stock available (based on stock prop), return true
+    const notEnoughStock =
+      productItem.stock[selectedVariant] > numOfItemsInCart;
+
+    return notEnoughStock;
+  };
+
+  /* NOTE addToCart() - user adds item to cart by clicking button
+    1. check the stock available for selected variant
+    2. check item already exists in array, -> use find() with specific product id
+    3. if yes just increment the qty prop by 1 -> spread and update the qty prop
 */
   const addToCart = (productItem, selectedVariant) => {
-    if (cart.includes("empty")) {
-      cart.pop(cart[0]);
-    }
+    // + selectedQty
+    //props come from a form: user selects product (page/card), variant (dropdown) and qty needed (button)
+
+    //check how much stock is available for this variant
+    // - should not be exceeded by selectedQty + no. already in cart
+    //bonus: if stock falls to zero, should the variant option be automatically greyed out/unselectable from dropdown menu?
+
+    //if not enough stock, display error message
     if (!checkStockAvailability(productItem, selectedVariant)) {
+      // + selectedQty
       console.log("run out of stock - check again later");
       return false; //fail
     }
+
+    //if enough stock, add to the cartList
     console.log(`Adding to cart: ${productItem.id}`);
 
+    //create new prop to identify what the variant the user chose to add to cart
     const itemWithVariant = {
       ...productItem,
       selectedVariant: selectedVariant,
+      // + selectedQty: selectedQty,
     };
 
-    setCart((prevCart) => [...prevCart, itemWithVariant]);
-    return true; //success
+    // update the cart with added item
+    setCart((prevCart) => [...prevCart, itemWithVariant]); // + selectedQty:
+
+    return true; //successfully added
   };
 
-  //NOTE : decrement the qty -1, if it turns to 0, them remove the ItemCard altogether (or should only show if qty >= 1)
-
+  //NOTE - Remove 1 item from the cartList
   const removeItemFromCart = (itemId) => {
     const removedCart = (prevCart) =>
       prevCart.filter((item) => item.id !== itemId);
     setCart(removedCart);
   };
 
+  //NOTE - Remove ALL items from the cartList
   const clearCart = () => {
-    setCart(["empty"]);
+    setCart([]);
   };
 
+  //NOTE - Total price of ALL items from the cartList
   const getTotalPrice = () => {
     return cart.reduce((total, item) => {
       if (item === "empty") return total;
@@ -51,26 +82,7 @@ export const CartProvider = ({ children }) => {
     }, 0);
   };
 
-  //NOTE - Checking stock availability: You should not be able to add more items than are in stock to the cart
-  //- needs to check if the qty =< stock for the selectedVariant
-
-  const checkStockAvailability = (productItem, selectedVariant) => {
-    const countDuplicateItemsInCart = cart.filter(
-      (item) =>
-        item.id === productItem.id && item.selectedVariant === selectedVariant
-    ).length;
-
-    console.log({
-      productId: productItem.id,
-      variant: selectedVariant,
-      stockAvailable: productItem.stock[selectedVariant],
-      inCart: countDuplicateItemsInCart,
-    });
-
-    return productItem.stock[selectedVariant] > countDuplicateItemsInCart;
-  };
-
-  //favorite button
+  //NOTE - favorite button -> bonus idea: wishlist page later
   const updateFavorited = (productId) => {
     setFavsList((prevFavsList) => {
       if (prevFavsList.includes(productId)) {
@@ -83,10 +95,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  //updating quantity
-
-  //this makes sure the context and its functions are available everywhere in the app
-
+  //NOTE - this makes sure the context and its functions are available everywhere in the app
   return (
     <CartContext.Provider
       value={{
