@@ -3,17 +3,17 @@ import classes from "./HomePage.module.scss";
 
 const HomePage = () => {
   return (
-    <>
-      <header className="classes.header">
-        <h1>Welcome</h1>
-        <p>Introduce the website here</p>
-      </header>
-      <main className="classes.main">
-        <h2>Featured Products</h2>
-        <p>Some products, imagery here</p>
-        <ProductsLoader />
-      </main>
-    </>
+    <main className={classes.container}>
+      <h1>Shop Page</h1>
+      <div className={classes.header}>
+        <p>
+          This is the shop page, the user can browser through a list of products
+          here, scroll down and preview thumbnails of a list of products
+          avaialble
+        </p>
+      </div>
+      <ProductsLoader />
+    </main>
   );
 };
 
