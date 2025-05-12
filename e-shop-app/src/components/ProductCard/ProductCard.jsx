@@ -2,12 +2,9 @@ import classes from "./ProductCard.module.scss";
 import ProductForm from "../ProductForm/ProductForm";
 
 const ProductCard = ({ productInfo }) => {
-  //console.log(productData);
-  //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants
-
-  productInfo.imgURL.map((imgLink) => {
-    console.log(imgLink);
-  });
+  //console.log(productInfo);
+  const allVariants = productInfo.variantData;
+  //console.log(allVariants);
 
   return (
     <div className={classes.container}>
@@ -15,14 +12,23 @@ const ProductCard = ({ productInfo }) => {
         <h3>{productInfo.name}</h3>
       </a>
       <p>Rating: {productInfo.rating}</p>
-      {productInfo.imgURL.map((img) => (
-        <a key={`img-${img}`} href={img}>
-          Image Link{" "}
-        </a>
-      ))}
-      <ProductForm productInfo={productInfo} />
+      <div
+        style={{
+          backgroundImage: `url(${allVariants[0].variantImgLink})`,
+        }}
+      ></div>
+      <ProductForm
+        productInfo={productInfo}
+        variantData={productInfo.variantData}
+      />
     </div>
   );
 };
 
 export default ProductCard;
+
+// {/* {productInfo.imgURL.map((img) => (
+//   <a key={`img-${img}`} href={img}>
+//     Image Link{" "}
+//   </a> */}
+// ))}

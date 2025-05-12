@@ -6,7 +6,7 @@ import classes from "./CartList.module.scss";
 const CartList = () => {
   const { cart, clearCart, totalPrice, getTotalPrice } =
     useContext(CartContext);
-  console.log(cart);
+  // console.log(cart);
 
   const handleClick = () => {
     console.log("clicked");
@@ -17,18 +17,16 @@ const CartList = () => {
   return (
     <>
       <div className={classes.container}>
-        <h4>Preview data - cart array</h4>
         <h4>Your CartList</h4>
         <button onClick={handleClick}>Clear Cart</button>
         <section className={classes.list}>
-          {!cart.includes("empty") &&
-            cart.map((product) => (
-              <CartItemCard key={product.id} productData={product} />
-            ))}
+          {cart.map((item, i) => (
+            <CartItemCard key={i} productData={item} />
+          ))}
         </section>
         <p>Total: ${getTotalPrice().toFixed(2)}</p>
       </div>
-      <h4>current cart info preview</h4>
+      <h4>Preview data - cart array</h4>
       <pre className={classes.dataPreview}>{JSONstring}</pre>
     </>
   );

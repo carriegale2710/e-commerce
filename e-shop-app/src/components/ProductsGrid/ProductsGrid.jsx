@@ -4,9 +4,9 @@ import classes from "./ProductsGrid.module.scss";
 const ProductsGrid = ({ products }) => {
   return (
     <div className={classes.grid}>
-      {products.map((product) => {
+      {products.map((product, i) => {
         //console.log(`Loading ${product.name}`);
-        return <ProductCard key={product.id} productInfo={product} />;
+        return <ProductCard key={i} productInfo={product} />;
       })}
     </div>
   );

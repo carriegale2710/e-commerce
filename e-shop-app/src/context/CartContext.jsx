@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-export const CartContext = createContext(); //context shared across entire pp
+export const CartContext = createContext(/*null */); //context shared across entire pp
 
 export const CartProvider = ({ children }) => {
   //state management
@@ -13,52 +13,98 @@ export const CartProvider = ({ children }) => {
   2. Should run whenever user attempts to add a product variant to the cart
   */
   const checkStockAvailability = (productItem, selectedVariant) => {
+    //how many of this variant already added to cart?
     const numOfItemsInCart = cart.filter(
       (item) =>
         item.id === productItem.id && item.selectedVariant === selectedVariant
     ).length;
 
-    //- needs to check if the qty =< stock for the selectedVariant
-    // if number of items for THAT SPECIFIC VARIANT existing in cart EXCEEDS stock available (based on stock prop), return true
-    const notEnoughStock =
-      productItem.stock[selectedVariant] > numOfItemsInCart;
+    // where is the selected variant in variantData?
+    const selectedVariantData = productItem.variantData.find(
+      (variant) => variant.productVariantId === selectedVariant
+    );
 
-    return notEnoughStock;
+    if (!selectedVariantData) {
+      console.error("this variant couldn't be found");
+      return false;
+    }
+
+    const stock = selectedVariantData.variantStockAvailable;
+    console.log("Items in cart:", numOfItemsInCart);
+    console.log("Stock available:", selectedVariantData.variantStockAvailable);
+
+    //enough stock for selectedVariant?
+    return productItem.quantity > stock;
   };
 
   /* NOTE addToCart() - user adds item to cart by clicking button
+
     1. check the stock available for selected variant
     2. check item already exists in array, -> use find() with specific product id
     3. if yes just increment the qty prop by 1 -> spread and update the qty prop
-*/
+  */
   const addToCart = (productItem, selectedVariant) => {
-    // + selectedQty
     //props come from a form: user selects product (page/card), variant (dropdown) and qty needed (button)
+    console.log("selectedVariant: " + selectedVariant);
 
-    //check how much stock is available for this variant
-    // - should not be exceeded by selectedQty + no. already in cart
-    //bonus: if stock falls to zero, should the variant option be automatically greyed out/unselectable from dropdown menu?
+    // Check if item already exists in cart
+    const existingItemIndex = cart.findIndex(
+      (item) =>
+        item.id === productItem.id && item.selectedVariant === selectedVariant
+    );
 
-    //if not enough stock, display error message
-    if (!checkStockAvailability(productItem, selectedVariant)) {
-      // + selectedQty
-      console.log("run out of stock - check again later");
-      return false; //fail
+    if (existingItemIndex >= 0) {
+      const updatedCart = [...cart];
+      const existingItem = updatedCart[existingItemIndex];
+
+      // Find the matching variant
+      const matchingVariant = productItem.variantData.find(
+        (variant) => variant.productVariantId === selectedVariant
+      );
+
+      console.log("Matching variant:", matchingVariant);
+
+      if (!matchingVariant) {
+        console.error("Variant not found");
+        return false;
+      }
+
+      const newQuantity = (existingItem.quantity || 1) + 1;
+
+      if (!checkStockAvailability(productItem, selectedVariant)) {
+        console.log("run out of stock - check again later");
+        alert("run out of stock - check again later");
+        return false;
+      }
+
+      updatedCart[existingItemIndex] = {
+        ...existingItem,
+        quantity: newQuantity,
+        selectedVariant,
+        currentVariant: matchingVariant, // Store the current variant data
+      };
+
+      setCart(updatedCart);
+      return true;
     }
 
-    //if enough stock, add to the cartList
-    console.log(`Adding to cart: ${productItem.id}`);
+    // For new items, include the matching variant data
+    const matchingVariant = productItem.variantData.find(
+      (variant) => variant.productVariantId === selectedVariant
+    );
 
+    if (!matchingVariant) {
+      console.error("Variant not found");
+      return false;
+    }
     //create new prop to identify what the variant the user chose to add to cart
     const itemWithVariant = {
       ...productItem,
       selectedVariant: selectedVariant,
-      // + selectedQty: selectedQty,
+      quantity: 1,
     };
-
-    // update the cart with added item
-    setCart((prevCart) => [...prevCart, itemWithVariant]); // + selectedQty:
-
+    console.log("Updated cart item:", itemWithVariant);
+    setCart((prevCart) => [...prevCart, itemWithVariant]); // update the cart with added item
     return true; //successfully added
   };
 
@@ -77,8 +123,8 @@ export const CartProvider = ({ children }) => {
   //NOTE - Total price of ALL items from the cartList
   const getTotalPrice = () => {
     return cart.reduce((total, item) => {
-      if (item === "empty") return total;
-      return total + item.price;
+      const variantTotal = item.price * item.quantity;
+      return total + variantTotal;
     }, 0);
   };
 

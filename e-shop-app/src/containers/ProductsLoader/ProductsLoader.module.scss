@@ -20,3 +20,15 @@
   text-wrap: inherit;
   text-align: left;
 }
+
+.preview {
+  height: 500px;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  overflow-x: auto;
+  text-wrap: inherit;
+  text-align: left;
+}

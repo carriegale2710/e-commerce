@@ -2,11 +2,13 @@ import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import classes from "./ProductForm.module.scss";
 
-const ProductForm = ({ productInfo }) => {
+const ProductForm = ({ productInfo, variantData }) => {
   // props needed: product data user is interested in adding
+  // const allVariants = productInfo.variantData;
+  // console.log(productInfo);
+  //console.log(productInfo.name, variantData);
 
-  const [selectedVariant, setSelectedVariant] = useState(0);
-  //const [isFavorited, setIsFavorited] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState("");
   const { addToCart, updateFavorited, favsList } = useContext(CartContext);
   const isFavorited = favsList.includes(productInfo.id);
 
@@ -21,11 +23,13 @@ const ProductForm = ({ productInfo }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("adding to cart!");
-    //TODO - call addtoCart from cartContext here
+    console.log(`Adding ${selectedVariant} to cart...`);
+    //call addtoCart from cartContext here
     const success = addToCart(productInfo, selectedVariant);
     if (!success) {
       alert("sorry, out of stock");
+    } else {
+      console.log(`${selectedVariant} added to cart!`);
     }
   };
 
@@ -42,23 +46,32 @@ const ProductForm = ({ productInfo }) => {
     updateFavorited(productInfo.id);
   };
 
-  const handleChange = () => {
-    console.log("shade updated");
+  //handles variant-picker user selection
+  const handleChange = (e) => {
+    const newVariant = e.target.value; // Changed from e.value
+    setSelectedVariant(newVariant);
+    console.log(`shade updated to: ${newVariant}`);
     //chnge the thumbnail image to vrint sleected
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        {/* add a dropdown element for picking the product variant (shade)*/}
+        {/*dropdown element for picking the product variant (shade)*/}
         <label htmlFor="variant-picker">Select shade</label> <br />
         <select
           onChange={handleChange}
           name="variant-picker"
           id="variant-picker"
+          value={selectedVariant}
         >
-          <option value="1">Shade 1, In stock: {productInfo.stock[0]} </option>
-          <option value="2">Shade 2, In stock: {productInfo.stock[1]} </option>
+          {variantData.map((v) => {
+            return (
+              <option key={v.productVariantId} value={v.productVariantId}>
+                Shade: {v.variantName}, In stock: {v.variantStockAvailable}{" "}
+              </option>
+            );
+          })}
         </select>
         <p>${productInfo.price.toFixed(2)}</p>
         <button type="submit">Add to Cart</button>
