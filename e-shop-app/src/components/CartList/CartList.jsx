@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartProvider";
 import CartItemCard from "../CartItemCard/CartItemCard";
 import classes from "./CartList.module.scss";
 
 const CartList = () => {
-  const { cart, clearCart, totalPrice, getTotalPrice } =
+  const { cart, clearCart, totalPrice, getTotalCartPrice } =
     useContext(CartContext);
   // console.log(cart);
 
@@ -24,7 +24,7 @@ const CartList = () => {
             <CartItemCard key={i} productData={item} />
           ))}
         </section>
-        <p>Total: ${getTotalPrice().toFixed(2)}</p>
+        <p>Total: ${getTotalCartPrice().toFixed(2)}</p>
       </div>
       <h4>Preview data - cart array</h4>
       <pre className={classes.dataPreview}>{JSONstring}</pre>

@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
   1. You should not be able to add more items than are in stock to the cart
   2. Should run whenever user attempts to add a product variant to the cart
   */
-  const checkStockAvailability = (productItem, selectedVariant) => {
+  const isThereEnoughStock = (productItem, selectedVariant) => {
     //how many of this variant already added to cart?
     const numOfItemsInCart = cart.filter(
       (item) =>
@@ -33,17 +33,15 @@ export const CartProvider = ({ children }) => {
     console.log("Items in cart:", numOfItemsInCart);
     console.log("Stock available:", selectedVariantData.variantStockAvailable);
 
-    //enough stock for selectedVariant?
-    return productItem.quantity > stock;
+    return productItem.quantity < stock;
   };
 
-  /* NOTE addToCart() - user adds item to cart by clicking button
-
-    1. check the stock available for selected variant
-    2. check item already exists in array, -> use find() with specific product id
-    3. if yes just increment the qty prop by 1 -> spread and update the qty prop
-  */
-  const addToCart = (productItem, selectedVariant) => {
+  const addItemToCart = (productItem, selectedVariant) => {
+    /* NOTE addItemToCart() - user adds item to cart by clicking button
+      1. check the stock available for selected variant
+      2. check item already exists in array, -> use find() with specific product id
+      3. if yes just increment the qty prop by 1 -> spread and update the qty prop
+    */
     //props come from a form: user selects product (page/card), variant (dropdown) and qty needed (button)
     console.log("selectedVariant: " + selectedVariant);
 
@@ -71,7 +69,8 @@ export const CartProvider = ({ children }) => {
 
       const newQuantity = (existingItem.quantity || 1) + 1;
 
-      if (!checkStockAvailability(productItem, selectedVariant)) {
+      //enough stock for selectedVariant?
+      if (!isThereEnoughStock(productItem, selectedVariant)) {
         console.log("run out of stock - check again later");
         alert("run out of stock - check again later");
         return false;
@@ -121,7 +120,7 @@ export const CartProvider = ({ children }) => {
   };
 
   //NOTE - Total price of ALL items from the cartList
-  const getTotalPrice = () => {
+  const getTotalCartPrice = () => {
     return cart.reduce((total, item) => {
       const variantTotal = item.price * item.quantity;
       return total + variantTotal;
@@ -129,7 +128,7 @@ export const CartProvider = ({ children }) => {
   };
 
   //NOTE - favorite button -> bonus idea: wishlist page later
-  const updateFavorited = (productId) => {
+  const updateFavoritedItems = (productId) => {
     setFavsList((prevFavsList) => {
       if (prevFavsList.includes(productId)) {
         // Remove from favorites if already favorited
@@ -146,13 +145,13 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        addToCart,
+        addItemToCart,
         removeItemFromCart,
         clearCart,
-        getTotalPrice,
-        checkStockAvailability,
+        getTotalCartPrice,
+        isThereEnoughStock,
         favsList,
-        updateFavorited,
+        updateFavoritedItems,
       }}
     >
       {children}

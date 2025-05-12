@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartProvider";
 import classes from "./ProductForm.module.scss";
 
 const ProductForm = ({ productInfo, variantData }) => {
@@ -9,13 +9,14 @@ const ProductForm = ({ productInfo, variantData }) => {
   //console.log(productInfo.name, variantData);
 
   const [selectedVariant, setSelectedVariant] = useState("");
-  const { addToCart, updateFavorited, favsList } = useContext(CartContext);
+  const { addItemToCart, updateFavoritedItems, favsList } =
+    useContext(CartContext);
   const isFavorited = favsList.includes(productInfo.id);
 
   //for add to cart button click
   //   const handleClick = () => {
-  //     console.log("addtocart clicked");
-  //     const success = addToCart(productInfo, selectedVariant);
+  //     console.log("addItemToCart clicked");
+  //     const success = addItemToCart(productInfo, selectedVariant);
   //     if (!success) {
   //       alert("sorry, out of stock");
   //     }
@@ -24,10 +25,10 @@ const ProductForm = ({ productInfo, variantData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(`Adding ${selectedVariant} to cart...`);
-    //call addtoCart from cartContext here
-    const success = addToCart(productInfo, selectedVariant);
+    //call addItemToCart from cartContext here
+    const success = addItemToCart(productInfo, selectedVariant);
     if (!success) {
-      alert("sorry, out of stock");
+      alert(`Sorry, ${selectedVariant} is out of stock...`);
     } else {
       console.log(`${selectedVariant} added to cart!`);
     }
@@ -43,7 +44,7 @@ const ProductForm = ({ productInfo, variantData }) => {
     }
     //setIsFavorited(!isFavorited);
     //add favoriteItem function from context here
-    updateFavorited(productInfo.id);
+    updateFavoritedItems(productInfo.id);
   };
 
   //handles variant-picker user selection

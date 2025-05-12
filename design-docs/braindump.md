@@ -2,13 +2,13 @@
 
 //NOTE - state of cart must be shared across whole website - useContext -> CartContext
 
-/\*1. AddtoCart Function:
+/\*1. addItemToCart Function:
 
 USER FLOW
 
 --ProductCard---
 ACTION: User clicks 'add to cart' button
--> calls addToCart (js.services)
+-> calls addItemToCart (js.services)
 --js.services--
 --checking stock capacity--
 -> will check if qty of this item in current cart state vs stock available for this product
@@ -46,11 +46,11 @@ ACTION: User clicks 'Remove from cart' button
 
 NOTE - managing the quantity of each product
 
-- addToCart:
+- addItemToCart:
   check item already exists in array, -> use find() with specific product id
   if yes just increment the qty prop by 1 -> spread and update the qty prop
 - removeFromCart: decrement the qty -1, if it turns to 0, them remove the ItemCard altogether (or should only show if qty >= 1)
-- checkStockAvailability:
+- isThereEnoughStock
   - needs to check if the qty =< stock for the selectedVariant
 
 \*/
