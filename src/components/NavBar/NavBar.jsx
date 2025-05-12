@@ -10,7 +10,6 @@ const NavBar = () => {
         </NavLink>
       </div>
       <div>
-        <NavLink to="/products">Shop</NavLink>
         <NavLink to="/cart">Cart</NavLink>
       </div>
     </nav>

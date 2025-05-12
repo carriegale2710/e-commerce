@@ -77,7 +77,6 @@ const ProductForm = ({ productInfo, variantData }) => {
         <p>${productInfo.price.toFixed(2)}</p>
         <button type="submit">Add to Cart</button>
       </form>
-
       <button
         className={`${classes.favButton} ${isFavorited ? classes.active : ""}`}
         onClick={toggleClick}

@@ -3,7 +3,7 @@ import classes from "./ProductsGrid.module.scss";
 
 const ProductsGrid = ({ products }) => {
   return (
-    <div className={classes.grid}>
+    <div className={classes.flex}>
       {products.map((product, i) => {
         //console.log(`Loading ${product.name}`);
         return <ProductCard key={i} productInfo={product} />;

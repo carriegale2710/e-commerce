@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
+import NotFound from "./pages/NotFound/NotFound";
 
 import "./App.scss";
 
@@ -24,8 +25,12 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/products/:id" element={<ProductPage />} />
+              <Route
+                path="/products/:productId/:variantId"
+                element={<ProductPage />}
+              />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>

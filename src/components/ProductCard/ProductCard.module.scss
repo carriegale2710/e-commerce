@@ -3,8 +3,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
+  border: 2px solid rgba(134, 134, 134, 0.062);
   padding: 10px;
   margin: 10px;
   position: relative;
+  overflow: hidden;
+  width: 300px;
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%;
+  display: block;
+}
+
+p,
+select {
+  color: black;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.34px;
+  word-wrap: break-word;
 }

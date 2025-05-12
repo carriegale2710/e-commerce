@@ -3,3 +3,12 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+}

@@ -27,7 +27,7 @@ const CartList = () => {
         <p>Total: ${getTotalCartPrice().toFixed(2)}</p>
       </div>
       <h4>Preview data - cart array</h4>
-      <pre className={classes.dataPreview}>{JSONstring}</pre>
+      {/* <pre className={classes.dataPreview}>{JSONstring}</pre> */}
     </>
   );
 };

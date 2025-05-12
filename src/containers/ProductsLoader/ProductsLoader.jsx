@@ -65,7 +65,7 @@ export default function ProductsLoader() {
           isSuccess && <ProductsGrid products={products} />
         )} */}
       </main>
-      <pre className={classes.preview}>{JSONstring}</pre>
+      {/* <pre className={classes.preview}>{JSONstring}</pre> */}
     </>
   );
 }

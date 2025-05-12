@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import useQuery from "../hooks/useQuery";
 import { getAllProducts } from "../services/product-services";
+
 export const ProductsContext = createContext(null);
 
 export default function ProductsProvider({ children }) {
