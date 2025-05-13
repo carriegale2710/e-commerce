@@ -5,6 +5,7 @@ import ProductsProvider from "./context/ProductsProvider"; // Changed to named i
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CartPage from "./pages/CartPage/CartPage";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </CartProvider>
       </ProductsProvider>

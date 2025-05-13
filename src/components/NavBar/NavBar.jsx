@@ -14,6 +14,16 @@ const NavBar = () => {
           <p>Cart</p>
         </NavLink>
       </div>
+      <br />
+      <div>
+        <p>Test pages:</p>
+        <NavLink to="/ProductPage">
+          <p>Cart</p>
+        </NavLink>
+        <NavLink to="/cart">
+          <p>Cart</p>
+        </NavLink>
+      </div>
     </nav>
   );
 };
