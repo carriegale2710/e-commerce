@@ -15,6 +15,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+// light/dark mode scheme settings
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #90adc7;
+    background-color: #ffffff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+//layout
+
+body {
+  margin: 0;
+  display: flex;
+
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+//typography
+
 h3,
 h4,
 label,
@@ -38,14 +61,6 @@ a {
   :hover {
     color: #d61b72;
   }
-}
-
-body {
-  margin: 0;
-  display: flex;
-
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -124,13 +139,3 @@ button {
 // - extra large screens: 1201px >
 
 //2. device orientation - add if needed later
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}

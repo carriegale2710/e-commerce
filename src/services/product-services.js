@@ -30,7 +30,7 @@ export const getAllProducts = async () => {
         //console.log(variant);
         return {
           productVariantId: `${id}-v/${variantId[i]}`,
-          variantId: variantId[i],
+          variantId: `v/${variantId[i]}`,
           variantName: variantNames[i],
           variantImgLink: imgURL[i],
           variantStockAvailable: stock[i],
