@@ -39,11 +39,6 @@ export const getAllProducts = async () => {
         };
       });
 
-      let highRating = false;
-      if (rating > 4.5) {
-        highRating = true;
-      }
-
       const cleanDoc = {
         id,
         name,
@@ -51,7 +46,7 @@ export const getAllProducts = async () => {
         price,
         ...rest,
         variantData,
-        isFeatured: highRating, // added new prop - will turn true if rating above 4.5
+        isFeatured: rating > 4.4, // added new prop - will turn true if rating above 4.5
       };
 
       console.log(rating, cleanDoc);

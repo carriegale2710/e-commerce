@@ -7,11 +7,13 @@ const ProductsCarousel = ({ products }) => {
       <h2>Featured Products</h2>
       <ul>
         {products.map((product, i) => {
-          // console.log(`${product.id}_carousel_${i}`);
+          console.log(product.isFeatured);
           return (
-            <li key={`${product.id}_carousel_${i}`}>
-              <ProductCard productInfo={product} />
-            </li>
+            product.isFeatured && (
+              <li key={`${product.id}_carousel_${i}`}>
+                <ProductCard productInfo={product} />
+              </li>
+            )
           );
         })}
       </ul>
