@@ -6,7 +6,7 @@ const Footer = () => {
     <nav className={classes.container}>
       <p>Dummy Test pages:</p>
       <div>
-        <NavLink to="/ProductPage">
+        <NavLink to="/product-page-dummy">
           <p>Product-Page</p>
         </NavLink>
       </div>

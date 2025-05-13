@@ -8,16 +8,13 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
+import DummyProductPage from "./pages/ProductPage/DummyProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import NotFound from "./pages/NotFound/NotFound";
 
 import "./App.scss";
 
 function App() {
-  // const [cart, setCart] = useState(["empty"]);
-  // <CartContext.Provider>
-
-  // </CartContext.Provider>
   return (
     <>
       <ProductsProvider>
@@ -26,12 +23,16 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/*" element={<NotFound />} />
               <Route
                 path="/products/:productId/:variantId"
                 element={<ProductPage />}
               />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/*" element={<NotFound />} />
+              <Route
+                path="/product-page-dummy"
+                element={<DummyProductPage />}
+              />
             </Routes>
             <Footer />
           </BrowserRouter>

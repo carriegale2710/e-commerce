@@ -5,28 +5,33 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import classes from "./ProductPage.module.scss";
 
 const ProductPage = () => {
-  const { productId, variantId } = useParams();
+  // Check loading and error states first
   const { products, loading, error } = useContext(ProductsContext);
 
-  console.log("URL Parameters:", { productId, variantId });
-  console.log("Available Products:", products);
-
-  // Check loading and error states first
   if (loading) {
     return <div className={classes.loading}>Loading product details...</div>;
   }
-
   if (error) {
     return <div className={classes.error}>Error loading products: {error}</div>;
   }
+  console.log("Available Products:", products);
+
   // Find product with matching ID and variant
-  const product = products?.find((product) => {
+  const productId = "huda-beauty-creamy-kohl-eyeliner";
+  const variantId = "v/very-vanta";
+  const product = products.find((product) => {
     console.log("Checking product:", product.id);
+    if (product.id != productId) {
+      return;
+    }
     const hasVariant = product.variantData.some((variant) => {
       console.log("Checking variant:", variant.variantId);
-      return variant.variantId === variantId; // Using variantId consistently
+      return variant.variantId === variantId;
     });
-    return product.id === productId && hasVariant;
+    if (product.id === productId && hasVariant) {
+      console.log("found it!");
+    }
+    return product.id === productId && hasVariant && product;
   });
 
   if (!product) {
