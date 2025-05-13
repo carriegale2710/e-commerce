@@ -33,7 +33,7 @@ export default function ProductsLoader() {
 
   //(debugging) just to preview data in dev mode
   const JSONstring = JSON.stringify(products, null, 2); //
-  console.log(JSONstring);
+  //console.log(JSONstring);
 
   return (
     <>
@@ -50,7 +50,6 @@ export default function ProductsLoader() {
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {!loading && !error && <ProductsGrid products={products} />}
-        <pre></pre>
       </section>
     </>
   );

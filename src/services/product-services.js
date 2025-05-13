@@ -16,15 +16,16 @@ export const getAllProducts = async () => {
 
     //transform, clean the data
     const cleanedData = querySnapshot.docs.map((doc) => {
+      console.log(doc.data());
       const variantNames = doc.data().variants;
       const variantId = variantNames.map((variant) =>
         variant.split(" ").join("-").toLowerCase()
       );
-      //destructure this: description, id,imgURL,name, price, productType,productURL, rating,stock, variants
-      const { id, name, variants, imgURL, stock, price, ...rest } = doc.data();
-      //console.log(imgURL);
 
-      //cleaning up data for each product variant into individual objects
+      //destructuring props of each product in database: description, id,imgURL,name, price, productType,productURL, rating,stock, variants
+      const { id, name, variants, imgURL, stock, price, rating, ...rest } =
+        doc.data();
+      // then using these props to clean up VariantData property ->  each product variant into individual objects
       const variantData = variants.map((variant, i) => {
         //console.log(variant);
         return {
@@ -34,10 +35,27 @@ export const getAllProducts = async () => {
           variantImgLink: imgURL[i],
           variantStockAvailable: stock[i],
           variantPrice: price,
+          isFavorited: false,
         };
       });
 
-      return { id, name, variants, imgURL, stock, price, variantData, ...rest };
+      let highRating = false;
+      if (rating > 4.5) {
+        highRating = true;
+      }
+
+      const cleanDoc = {
+        id,
+        name,
+        variants,
+        price,
+        ...rest,
+        variantData,
+        isFeatured: highRating, // added new prop - will turn true if rating above 4.5
+      };
+
+      console.log(rating, cleanDoc);
+      return cleanDoc;
     });
     console.log(
       "Fetched + cleaned data from product-services.js: ",
