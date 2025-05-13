@@ -20,3 +20,5 @@ const ProductsCarousel = ({ products }) => {
 };
 
 export default ProductsCarousel;
+
+//reused similar format from ProductsGrid, just gave it some different styling

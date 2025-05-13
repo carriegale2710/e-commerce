@@ -12,29 +12,29 @@ export const CartProvider = ({ children }) => {
   1. You should not be able to add more items than are in stock to the cart
   2. Should run whenever user attempts to add a product variant to the cart
   */
-  const isThereEnoughStock = (productItem, selectedVariant) => {
-    //how many of this variant already added to cart?
-    const numOfItemsInCart = cart.filter(
-      (item) =>
-        item.id === productItem.id && item.selectedVariant === selectedVariant
-    ).length;
+  // const isThereEnoughStock = (productItem, selectedVariant) => {
+  //   //how many of this variant already added to cart?
+  //   const numOfItemsInCart = cart.filter(
+  //     (item) =>
+  //       item.id === productItem.id && item.selectedVariant === selectedVariant
+  //   ).length;
 
-    // where is the selected variant in variantData?
-    const selectedVariantData = productItem.variantData.find(
-      (variant) => variant.productVariantId === selectedVariant
-    );
+  //   // where is the selected variant in variantData?
+  //   const selectedVariantData = productItem.variantData.find(
+  //     (variant) => variant.productVariantId === selectedVariant
+  //   );
 
-    if (!selectedVariantData) {
-      console.error("this variant couldn't be found");
-      return false;
-    }
+  //   if (!selectedVariantData) {
+  //     console.error("this variant couldn't be found");
+  //     return false;
+  //   }
 
-    const stock = selectedVariantData.variantStockAvailable;
-    console.log("Items in cart:", numOfItemsInCart);
-    console.log("Stock available:", selectedVariantData.variantStockAvailable);
+  //   const stock = selectedVariantData.variantStockAvailable;
+  //   console.log("Items in cart:", numOfItemsInCart);
+  //   console.log("Stock available:", selectedVariantData.variantStockAvailable);
 
-    return productItem.quantity < stock;
-  };
+  //   return productItem.quantity < stock;
+  // };
 
   const addItemToCart = (productItem, selectedVariant) => {
     /* NOTE addItemToCart() - user adds item to cart by clicking button
@@ -55,26 +55,22 @@ export const CartProvider = ({ children }) => {
       const updatedCart = [...cart];
       const existingItem = updatedCart[existingItemIndex];
 
-      // Find the matching variant
-      const matchingVariant = productItem.variantData.find(
-        (variant) => variant.productVariantId === selectedVariant
-      );
+      const matchingVariant = findMatchingVariant(productItem, selectedVariant);
+      if (!matchingVariant) {
+        console.error("Variant not founf for existing item");
+        return false;
+      }
 
       console.log("Matching variant:", matchingVariant);
 
-      if (!matchingVariant) {
-        console.error("Variant not found");
-        return false;
-      }
-
       const newQuantity = (existingItem.quantity || 1) + 1;
 
-      //enough stock for selectedVariant?
-      if (!isThereEnoughStock(productItem, selectedVariant)) {
-        console.log("run out of stock - check again later");
-        alert("run out of stock - check again later");
-        return false;
-      }
+      // //enough stock for selectedVariant?
+      // if (!isThereEnoughStock(productItem, selectedVariant)) {
+      //   console.log("run out of stock - check again later");
+      //   alert("run out of stock - check again later");
+      //   return false;
+      // }
 
       updatedCart[existingItemIndex] = {
         ...existingItem,
@@ -88,6 +84,25 @@ export const CartProvider = ({ children }) => {
     }
 
     // For new items, include the matching variant data
+    const matchingVariant = findMatchingVariant(productItem, selectedVariant);
+    if (!matchingVariant) {
+      console.error("Variant not found for new item");
+      return false;
+    }
+
+    //create new prop to identify what the variant the user chose to add to cart
+    const itemWithVariant = {
+      ...productItem,
+      selectedVariant: selectedVariant,
+      currentVariant: matchingVariant, // Add this line
+      quantity: 1,
+    };
+    console.log("Updated cart item:", itemWithVariant);
+    setCart((prevCart) => [...prevCart, itemWithVariant]); // update the cart with added item
+    return true; //successfully added
+  };
+
+  const findMatchingVariant = (productItem, selectedVariant) => {
     const matchingVariant = productItem.variantData.find(
       (variant) => variant.productVariantId === selectedVariant
     );
@@ -96,15 +111,8 @@ export const CartProvider = ({ children }) => {
       console.error("Variant not found");
       return false;
     }
-    //create new prop to identify what the variant the user chose to add to cart
-    const itemWithVariant = {
-      ...productItem,
-      selectedVariant: selectedVariant,
-      quantity: 1,
-    };
-    console.log("Updated cart item:", itemWithVariant);
-    setCart((prevCart) => [...prevCart, itemWithVariant]); // update the cart with added item
-    return true; //successfully added
+
+    return matchingVariant;
   };
 
   //NOTE - Remove 1 item from the cartList
@@ -149,7 +157,7 @@ export const CartProvider = ({ children }) => {
         removeItemFromCart,
         clearCart,
         getTotalCartPrice,
-        isThereEnoughStock,
+        // isThereEnoughStock,
         favsList,
         updateFavoritedItems,
       }}
@@ -158,3 +166,24 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+
+/* Which components are using these functions? - use to debug your code
+
+1. App.jsx - Wraps around whole App
+2. CartPage.jsx - Wraps CartList component which uses CartContext
+3. CartList.jsx - Uses cart state and functions for displaying/managing cart items
+  - Using cart, clearCart, getTotalCartPrice
+4. VariantSelectForm.jsx - Uses cart functions for adding items and managing favorites
+ - using  addItemToCart, updateFavoritedItems, favsList
+
+
+ For debugging stock:
+  Try adding an item to cart
+  Check console logs for:
+  Current items in cart
+  Available stock
+  Any error messages
+  Verify that you can't add more items than available stock
+
+
+*/
