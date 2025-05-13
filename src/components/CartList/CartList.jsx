@@ -17,8 +17,7 @@ const CartList = () => {
   return (
     <>
       <div className={classes.container}>
-        <h4>Your CartList</h4>
-        <button onClick={handleClick}>Clear Cart</button>
+        <h2>Your Cart Items</h2>
         <section className={classes.list}>
           {cart.map((item, i) => (
             <CartItemCard key={i} productData={item} />
@@ -26,7 +25,7 @@ const CartList = () => {
         </section>
         <p>Total: ${getTotalCartPrice().toFixed(2)}</p>
       </div>
-      <h4>Preview data - cart array</h4>
+      <button onClick={handleClick}>Clear Cart</button>
       {/* <pre className={classes.dataPreview}>{JSONstring}</pre> */}
     </>
   );

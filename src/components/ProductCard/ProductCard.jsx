@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import ProductForm from "../ProductForm/ProductForm";
+import VariantSelectForm from "../VariantSelectForm/VariantSelectForm";
 import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({ productInfo }) => {
@@ -15,14 +15,17 @@ const ProductCard = ({ productInfo }) => {
   return (
     <div className={classes.container}>
       <NavLink to={`/products/${productInfo.id}/${defaultVariant.variantId}`}>
-        <h4>{productInfo.name}</h4>
+        <span className={classes.thumbnail}>
+          <img
+            src={allVariants[0].variantImgLink}
+            alt={allVariants[0].variantName}
+          />
+          <p className={classes.title}>
+            {productInfo.name} <br /> Rating: {productInfo.rating}
+          </p>
+        </span>
       </NavLink>
-      <img
-        src={allVariants[0].variantImgLink}
-        alt={allVariants[0].variantName}
-      />
-      <p>Rating: {productInfo.rating}</p>
-      <ProductForm
+      <VariantSelectForm
         productInfo={productInfo}
         variantData={productInfo.variantData}
       />

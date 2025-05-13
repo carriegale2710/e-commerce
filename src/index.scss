@@ -1,5 +1,7 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  max-width: 100vw;
+  font-family: "Arial Narrow", Arial, sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,19 +15,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h2,
 h3,
 h4,
-select,
 label,
 p {
   font-weight: 500;
   color: #490827;
   text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 select {
+  font-family: "Open Sans", sans-serif;
   width: 200px;
+  box-shadow: inset 0 0 10px #24180328;
 }
 
 a {
@@ -40,7 +43,7 @@ a {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
 }
@@ -50,11 +53,44 @@ h1 {
   font-size: 139.77px;
   font-weight: 400;
   word-wrap: break-word;
+  font-family: "DM Sans", sans-serif;
 }
 
 h2 {
   color: #eb3159;
 }
+
+//Online Public Free Fonts
+
+.jura {
+  font-family: "Jura", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.cal-sans {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.raleway {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+//Button - styling
 
 button {
   border-radius: 8px;
@@ -73,6 +109,21 @@ button {
     outline: 4px auto -webkit-focus-ring-color;
   }
 }
+
+//Micro-interactions
+
+//Site-Responsiveness
+
+//NOTE - media queries - flexbox enough for now - add after complexity
+
+//1. device size
+// - mobile: < 481px
+// - iPad/Tablets: 481px-768px
+// - small screens,laptops: 769px-1024px
+// - desktops, large screens: 1025px-1200px
+// - extra large screens: 1201px >
+
+//2. device orientation - add if needed later
 
 @media (prefers-color-scheme: light) {
   :root {

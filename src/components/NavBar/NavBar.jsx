@@ -6,11 +6,13 @@ const NavBar = () => {
     <nav className={classes.container}>
       <div>
         <NavLink to="/" end>
-          Home
+          <p>Home</p>
         </NavLink>
       </div>
       <div>
-        <NavLink to="/cart">Cart</NavLink>
+        <NavLink to="/cart">
+          <p>Cart</p>
+        </NavLink>
       </div>
     </nav>
   );

@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <main className={classes.container}>
       <div className={classes.header}>
-        <h1>Welcome</h1>
+        <h1>bestn’beaute</h1>
         <h2>Sale On Now!</h2>
       </div>
       <ProductsLoader />

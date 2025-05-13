@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartProvider";
-import classes from "./ProductForm.module.scss";
+import classes from "./VariantSelectForm.module.scss";
 
-const ProductForm = ({ productInfo, variantData }) => {
+const VariantSelectForm = ({ productInfo, variantData }) => {
   // props needed: product data user is interested in adding
   // const allVariants = productInfo.variantData;
   // console.log(productInfo);
@@ -12,15 +12,6 @@ const ProductForm = ({ productInfo, variantData }) => {
   const { addItemToCart, updateFavoritedItems, favsList } =
     useContext(CartContext);
   const isFavorited = favsList.includes(productInfo.id);
-
-  //for add to cart button click
-  //   const handleClick = () => {
-  //     console.log("addItemToCart clicked");
-  //     const success = addItemToCart(productInfo, selectedVariant);
-  //     if (!success) {
-  //       alert("sorry, out of stock");
-  //     }
-  //   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,23 +27,19 @@ const ProductForm = ({ productInfo, variantData }) => {
 
   //for the favorite button click
   const toggleClick = () => {
-    //console.log("favorite button clicked");
     if (!isFavorited) {
       console.log("added to favorites");
     } else {
       console.log("removed from favorites");
     }
-    //setIsFavorited(!isFavorited);
-    //add favoriteItem function from context here
     updateFavoritedItems(productInfo.id);
   };
 
   //handles variant-picker user selection
   const handleChange = (e) => {
-    const newVariant = e.target.value; // Changed from e.value
+    const newVariant = e.target.value;
     setSelectedVariant(newVariant);
     console.log(`shade updated to: ${newVariant}`);
-    //chnge the thumbnail image to vrint sleected
   };
 
   return (
@@ -66,15 +53,18 @@ const ProductForm = ({ productInfo, variantData }) => {
           id="variant-picker"
           value={selectedVariant}
         >
-          {variantData.map((v) => {
+          {variantData.map((v, index) => {
+            // console.log(`${v.productVariantId}-${index}`);
             return (
-              <option key={v.productVariantId} value={v.productVariantId}>
+              <option
+                key={`${v.productVariantId}-${index}`}
+                value={v.variantId}
+              >
                 Shade: {v.variantName}, In stock: {v.variantStockAvailable}{" "}
               </option>
             );
           })}
         </select>
-        <p>${productInfo.price.toFixed(2)}</p>
         <button type="submit">Add to Cart</button>
       </form>
       <button
@@ -87,4 +77,4 @@ const ProductForm = ({ productInfo, variantData }) => {
   );
 };
 
-export default ProductForm;
+export default VariantSelectForm;
