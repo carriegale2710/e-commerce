@@ -25,7 +25,11 @@ const CartList = () => {
         </section>
         <p>Total: ${getTotalCartPrice().toFixed(2)}</p>
       </div>
-      <button onClick={handleClick}>Clear Cart</button>
+      {cart.length > 0 && (
+        <button className="hidden" onClick={handleClick}>
+          Clear Cart
+        </button>
+      )}
       {/* <pre className={classes.dataPreview}>{JSONstring}</pre> */}
     </>
   );

@@ -15,7 +15,7 @@ const CheckOutForm = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit}>
+    <form className={classes.checkoutForm} onSubmit={handleSubmit}>
       <h2>Checkout Form</h2>
       <input
         type="text"
