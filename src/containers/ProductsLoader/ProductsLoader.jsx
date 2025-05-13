@@ -14,7 +14,7 @@ export default function ProductsLoader() {
     try {
       setLoading(true);
       const data = await getAllProducts();
-      console.log("Fetched products:", data);
+      //console.log("Fetched products:", data);
       setProducts(data);
     } catch (err) {
       setError(err.message);
@@ -26,13 +26,14 @@ export default function ProductsLoader() {
 
   useEffect(() => {
     loadProducts();
-    console.log("Set products:", products); //products data JSON string
   }, []); //only run on mount (once!!)
 
-  //console.log(products);
-  //(opt) just to preview data in dev mode
+  //array of objects
+  console.log("Set products:", products);
+
+  //(debugging) just to preview data in dev mode
   const JSONstring = JSON.stringify(products, null, 2); //
-  //console.log(JSONstring);
+  console.log(JSONstring);
 
   return (
     <>
@@ -49,6 +50,7 @@ export default function ProductsLoader() {
         {loading && <p>Loading...</p>}
         {error && <p>{error}</p>}
         {!loading && !error && <ProductsGrid products={products} />}
+        <pre></pre>
       </section>
     </>
   );

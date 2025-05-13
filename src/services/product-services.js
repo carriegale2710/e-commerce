@@ -39,6 +39,10 @@ export const getAllProducts = async () => {
 
       return { id, name, variants, imgURL, stock, price, variantData, ...rest };
     });
+    console.log(
+      "Fetched + cleaned data from product-services.js: ",
+      cleanedData
+    );
     return cleanedData; //return the raw data
   } catch (error) {
     throw new Error("Error fetching products: " + error.message);
