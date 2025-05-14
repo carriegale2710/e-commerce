@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
 import ProductsLoader from "../../containers/ProductsLoader/ProductsLoader";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import ProductDetails from "../../components/ProductCard/ProductCard";
 import classes from "./ProductPage.module.scss";
 
 const DummyProductPage = () => {
@@ -46,7 +46,7 @@ const DummyProductPage = () => {
           {loading && <p>Loading product details...</p>}
           {error && <p>Error loading product: {error}</p>}
           {product ? (
-            <ProductCard productInfo={product} />
+            <ProductDetails productInfo={product} />
           ) : (
             <>
               <header className={classes.container}>
