@@ -13,7 +13,7 @@
 - [Figma Mockups](https://www.figma.com/design/ygYxZp3P5Ly93cxN0C6lNc/E-commerce?node-id=0-1&t=RniU748WGmmkonOs-1)
 - [Project Brief](https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md)
 - [Data Flow Diagram](https://dbdiagram.io/d/E-Commerce-Site-68222a6d5b2fc4582f416746)
-- ![Data Flow Chart](db-diagram-data-flow-e-commerce.png)
+- [screen recording demo of the website](https://drive.google.com/file/d/1cWRFRAU9EQgnCrFZNK3tbS-47I9uxkOV/view?usp=drive_link)
 
 # Project Outline
 
