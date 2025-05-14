@@ -13,7 +13,25 @@
 - [Figma Mockups](https://www.figma.com/design/ygYxZp3P5Ly93cxN0C6lNc/E-commerce?node-id=0-1&t=RniU748WGmmkonOs-1)
 - [Project Brief](https://github.com/nology-tech/chicago-consultancy/blob/main/projects/eShop/README.md)
 - [Data Flow Diagram](https://dbdiagram.io/d/E-Commerce-Site-68222a6d5b2fc4582f416746)
+
+# Progress Updates
+
+14/05/2025
 - [screen recording demo of the website](https://drive.google.com/file/d/1cWRFRAU9EQgnCrFZNK3tbS-47I9uxkOV/view?usp=drive_link)
+
+home page
+![image](https://github.com/user-attachments/assets/66e61194-183b-488d-9b7c-9ecc5c752bed)
+![image](https://github.com/user-attachments/assets/7a67765a-222e-4993-882a-b8867404c308)
+![image](https://github.com/user-attachments/assets/d74b6993-7125-4a5f-912c-cb8544b5dfb7)
+
+Product Page
+![image](https://github.com/user-attachments/assets/7a46cd6d-97cf-467c-8065-30fff1534719)
+![image](https://github.com/user-attachments/assets/43ed6ba3-27e3-4f90-809a-8d60cc3d7c3a)
+
+
+Cart Page
+![image](https://github.com/user-attachments/assets/1bd5693b-851e-4563-b710-3a0d53b83b01)
+
 
 # Project Outline
 
