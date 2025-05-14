@@ -6,6 +6,7 @@ import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel
 import { ProductsContext } from "../../context/ProductsProvider";
 
 const HomePage = () => {
+  // these states are sent down as props to ProductsLoader (which does the actual fetching)
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

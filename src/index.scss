@@ -72,6 +72,16 @@ select {
   font-family: "Open Sans", sans-serif;
   width: 200px;
   box-shadow: inset 0 0 10px #24180328;
+  background-color: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  letter-spacing: 0.34px;
+  word-wrap: break-word;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+  margin: 5px;
 }
 
 // Online Public Free Fonts

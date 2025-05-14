@@ -1,38 +1,37 @@
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
+import ProductsLoader from "../../containers/ProductsLoader/ProductsLoader";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import classes from "./ProductPage.module.scss";
 
-const ProductPage = () => {
-  // Check loading and error states first
-  const { products, loading, error } = useContext(ProductsContext);
+const DummyProductPage = () => {
+  // const { products, loading, error } = useContext(ProductsContext);
 
-  if (loading) {
-    return <div className={classes.loading}>Loading product details...</div>;
-  }
-  if (error) {
-    return <div className={classes.error}>Error loading products: {error}</div>;
-  }
-  console.log("Available Products:", products);
+  // these states are sent down as props to ProductsLoader (which does the actual fetching)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // Find product with matching ID and variant
+  //array of objects
+  console.log("Set products:", products);
+
+  //(debugging) just to preview data in dev mode
+  const JSONstring = JSON.stringify(products, null, 2); //
+  console.log(JSONstring);
+
+  //dummy product
   const productId = "huda-beauty-creamy-kohl-eyeliner";
   const variantId = "v/very-vanta";
-  const product = products.find((product) => {
-    console.log("Checking product:", product.id);
-    if (product.id != productId) {
-      return;
-    }
-    const hasVariant = product.variantData.some((variant) => {
-      console.log("Checking variant:", variant.variantId);
-      return variant.variantId === variantId;
-    });
-    if (product.id === productId && hasVariant) {
-      console.log("found it!");
-    }
-    return product.id === productId && hasVariant && product;
-  });
+
+  // Find product with matching ID and variant
+  const product =
+    products.length > 0 &&
+    products.find(
+      (product) =>
+        product.id === productId &&
+        product.variantData.some((variant) => variant.variantId === variantId)
+    );
 
   if (!product) {
     return (
@@ -51,8 +50,13 @@ const ProductPage = () => {
 
   return (
     <>
+      <ProductsLoader
+        setProducts={setProducts}
+        setLoading={setLoading}
+        setError={setError}
+      />
       <header className={classes.container}>
-        <h1>Product page</h1>
+        <h2>Product page</h2>
         <p>
           This page will show details about a single product when clicked on
           from the Shop Page products grid, it will have a image gallery with
@@ -62,9 +66,17 @@ const ProductPage = () => {
         </p>
       </header>
       <main className={classes.container}>
-        <ProductCard productInfo={product} />
-        <section>
-          <h1>User Reviews</h1>
+        <section className={classes.container}>
+          {loading && <p>Loading product details...</p>}
+          {error && <p>Error loading product: {error}</p>}
+          {product ? (
+            <ProductCard productInfo={product} />
+          ) : (
+            <p>Product not found</p>
+          )}
+        </section>
+        <section className={classes.container}>
+          <h2>User Reviews</h2>
           <p>
             Personal Bonus Idea for later: user Review section below the product
             details, with form to create a new review
@@ -75,4 +87,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default DummyProductPage;

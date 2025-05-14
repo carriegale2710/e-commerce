@@ -3,7 +3,7 @@ import VariantSelectForm from "../VariantSelectForm/VariantSelectForm";
 import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({ productInfo }) => {
-  //console.log("Product Info:", productInfo); // Check full product data
+  console.log("Product Info:", productInfo); // Check full product data
   //console.log("Product ID:", productInfo.id); // Verify ID exists
   //console.log("Default Variant:", productInfo.variantData[0]); // Check variant data
 
