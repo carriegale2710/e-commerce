@@ -1,6 +1,10 @@
-//SECTION - User Flow Notes -Braindumps
+# Braindump Notes
 
-//NOTE - state of cart must be shared across whole website - useContext -> CartContext
+# User Flow Notes
+
+## CartProvider - CartContext
+
+- state of cart must be shared across whole website - useContext -> CartContext
 
 /\*1. addItemToCart Function:
 
@@ -8,9 +12,9 @@ USER FLOW
 
 --ProductCard---
 ACTION: User clicks 'add to cart' button
--> calls addItemToCart (js.services)
---js.services--
---checking stock capacity--
+-> calls addItemToCart (CartProvider)
+--CartProvider--
+-- checksStockAvailability --
 -> will check if qty of this item in current cart state vs stock available for this product
 -> if item quantity in cart is NOT less than stock qty of the item (stock prop): - do not add item id to the cart - display message to user 'not enough stock-check back later'
 -> product.id added to 'cart' array

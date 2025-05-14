@@ -2,14 +2,25 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import DummyProductPage from "./DummyProductPage";
 import classes from "./ProductPage.module.scss";
 
-const ProductPage = () => {
-  const { productId, variantId } = useParams();
-  const { products, loading, error } = useContext(ProductsContext);
+/* NOTE - PRODUCT PAGE REQS:
+This page will show details about a single product:
+- navigates here when clicked on from a ProductCard
+- should show the first variant as the default display upon entry
+- has same elements from ProductCard, but with diff styling, and also:
+  - should have image gallery with carousel, with arrows to slides thru images; 
+  - should have a description; 
+  - maybe user review section implemented later
+*/
 
-  console.log("URL Parameters:", { productId, variantId });
-  console.log("Available Products:", products);
+const ProductPage = () => {
+  //const { products, productId, variantId } = useParams();
+  // console.log("URL Parameters:", { productId, variantId });
+
+  //const { products, loading, error } = useContext(ProductsContext);
+  // console.log("Available Products:", products);
 
   // Check loading and error states first
   if (loading) {
@@ -29,35 +40,17 @@ const ProductPage = () => {
     return product.id === productId && hasVariant;
   });
 
-  if (!product) {
-    return (
-      <>
-        <div className={classes.error}>
-          <p>Product not found:</p>
-          <p>
-            Product ID: {productId}
-            <br />
-            Variant ID: {variantId}
-          </p>
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <header className={classes.container}>
-        <h1>Product page</h1>
-        <p>
-          This page will show details about a single product when clicked on
-          from the Shop Page products grid, it will have a image gallery with
-          carousel, with arrows to slides thru images; it will have a
-          description, and information fetched by firestore API; it will also
-          have a button to add to cart - should show up on Cart Page
-        </p>
+        <h2>Product page</h2>
       </header>
       <main className={classes.container}>
-        <ProductCard productInfo={product} />
+        <section>
+          <h2>Product Details</h2>
+          <p>Product Details should display here</p>
+          <DummyProductPage />
+        </section>
         <section>
           <h1>User Reviews</h1>
           <p>

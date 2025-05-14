@@ -1,6 +1,6 @@
 import ProductsLoader from "../../containers/ProductsLoader/ProductsLoader";
 import classes from "./HomePage.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductsGrid from "../../components/ProductsGrid/ProductsGrid";
 import ProductsCarousel from "../../components/ProductsCarousel/ProductsCarousel";
 import { ProductsContext } from "../../context/ProductsProvider";
@@ -11,8 +11,9 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  //array of objects
-  console.log("Set products:", products);
+  useEffect(() => {
+    console.log("Products updated:", products);
+  }, [products]);
 
   //(debugging) just to preview data in dev mode
   const JSONstring = JSON.stringify(products, null, 2); //

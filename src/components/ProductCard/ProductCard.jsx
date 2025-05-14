@@ -3,14 +3,17 @@ import VariantSelectForm from "../VariantSelectForm/VariantSelectForm";
 import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({ productInfo }) => {
-  console.log("Product Info:", productInfo); // Check full product data
+  // console.log("Product Info:", productInfo); // Check full product data
   //console.log("Product ID:", productInfo.id); // Verify ID exists
   //console.log("Default Variant:", productInfo.variantData[0]); // Check variant data
 
   //console.log(productInfo);
   const allVariants = productInfo.variantData;
   const defaultVariant = allVariants[0];
-  //console.log(defaultLink);
+
+  //debugging
+  // console.log("productId: " + productInfo.id);
+  // console.log("variantId: " + defaultVariant.variantId);
 
   return (
     <div className={classes.container}>

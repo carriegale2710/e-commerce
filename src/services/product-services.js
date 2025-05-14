@@ -16,7 +16,7 @@ export const getAllProducts = async () => {
 
     //transform, clean the data
     const cleanedData = querySnapshot.docs.map((doc) => {
-      console.log(doc.data());
+      //console.log(doc.data());
       const variantNames = doc.data().variants;
       const variantId = variantNames.map((variant) =>
         variant.split(" ").join("-").toLowerCase()
@@ -49,7 +49,7 @@ export const getAllProducts = async () => {
         isFeatured: rating > 4.4, // added new prop - will turn true if rating above 4.5
       };
 
-      console.log(rating, cleanDoc);
+      //console.log(rating, cleanDoc);
       return cleanDoc;
     });
     console.log(
