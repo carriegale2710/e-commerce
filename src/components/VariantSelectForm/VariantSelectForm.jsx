@@ -65,7 +65,9 @@ const VariantSelectForm = ({ productInfo, variantData }) => {
             );
           })}
         </select>
-        <button type="submit">Add to Cart</button>
+        <button className={classes.addButton} type="submit">
+          Add to Cart
+        </button>
       </form>
       <button
         className={`${classes.favButton} ${isFavorited ? classes.active : ""}`}
