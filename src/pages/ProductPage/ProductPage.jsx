@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import DummyProductPage from "./DummyProductPage";
+import ProductDetails from "./ProductDetails";
 import classes from "./ProductPage.module.scss";
 
 /* NOTE - PRODUCT PAGE REQS:
@@ -49,7 +49,7 @@ const ProductPage = () => {
         <section>
           <h2>Product Details</h2>
           <p>Product Details should display here</p>
-          <DummyProductPage />
+          <ProductDetails />
         </section>
         <section>
           <h1>User Reviews</h1>

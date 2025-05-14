@@ -8,7 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import ProductPage from "./pages/ProductPage/ProductPage";
-import DummyProductPage from "./pages/ProductPage/DummyProductPage";
+import ProductDetails from "./pages/ProductPage/ProductDetails";
 import CartPage from "./pages/CartPage/CartPage";
 import NotFound from "./pages/NotFound/NotFound";
 
@@ -29,10 +29,7 @@ function App() {
                 path="/products/:productId/:variantId"
                 element={<ProductPage />}
               />
-              <Route
-                path="/product-page-dummy"
-                element={<DummyProductPage />}
-              />
+              <Route path="/product-page-dummy" element={<ProductDetails />} />
             </Routes>
             <Footer />
           </BrowserRouter>
