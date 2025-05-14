@@ -41,17 +41,15 @@ const ProductPage = () => {
   });
 
   return (
-    <>
+    <div className={classes.page}>
       <header className={classes.container}>
         <h2>Product page</h2>
       </header>
       <main className={classes.container}>
         <section>
-          <h2>Product Details</h2>
-          <p>Product Details should display here</p>
           <ProductDetails />
         </section>
-        <section>
+        <section className={classes.reviews}>
           <h1>User Reviews</h1>
           <p>
             Personal Bonus Idea for later: user Review section below the product
@@ -59,7 +57,7 @@ const ProductPage = () => {
           </p>
         </section>
       </main>
-    </>
+    </div>
   );
 };
 

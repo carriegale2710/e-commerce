@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
 import ProductsLoader from "../../containers/ProductsLoader/ProductsLoader";
 import ProductHero from "../../components/ProductHero/ProductHero";
+import ProductDescription from "../../components/ProductDescription/ProductDescription";
 import classes from "./ProductPage.module.scss";
 
 const ProductDetails = () => {
@@ -42,11 +43,16 @@ const ProductDetails = () => {
       />
 
       <main className={classes.container}>
+        <h2>Product Details</h2>
+        <p>Product Details should display here</p>
         <section className={classes.container}>
           {loading && <p>Loading product details...</p>}
           {error && <p>Error loading product: {error}</p>}
           {product ? (
-            <ProductHero productInfo={product} />
+            <>
+              <ProductHero productInfo={product} />
+              <ProductDescription productDescription={product.description} />
+            </>
           ) : (
             <>
               <header className={classes.container}>
@@ -61,13 +67,6 @@ const ProductDetails = () => {
               </div>
             </>
           )}
-        </section>
-        <section className={classes.reviews}>
-          <h2>User Reviews</h2>
-          <p>
-            Personal Bonus Idea for later: user Review section below the product
-            details, with form to create a new review
-          </p>
         </section>
       </main>
     </div>
