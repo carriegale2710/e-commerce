@@ -29,8 +29,8 @@ export const getAllProducts = async () => {
       const variantData = variants.map((variant, i) => {
         //console.log(variant);
         return {
-          productVariantId: `${id}-v/${variantId[i]}`,
-          variantId: `v/${variantId[i]}`,
+          productVariantId: `${id}-${variantId[i]}`,
+          variantId: `${variantId[i]}`,
           variantName: variantNames[i],
           variantImgLink: imgURL[i],
           variantStockAvailable: stock[i],

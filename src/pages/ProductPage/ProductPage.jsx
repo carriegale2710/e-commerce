@@ -1,7 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useContext } from "react";
-import { ProductsContext } from "../../context/ProductsProvider";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import ProductDetails from "./ProductDetails";
 import classes from "./ProductPage.module.scss";
 
@@ -16,8 +13,8 @@ This page will show details about a single product:
 */
 
 const ProductPage = () => {
-  //const { products, productId, variantId } = useParams();
-  // console.log("URL Parameters:", { productId, variantId });
+  const { productId, variantId } = useParams();
+  console.log("URL Parameters:", { productId, variantId });
 
   //const { products, loading, error } = useContext(ProductsContext);
   // console.log("Available Products:", products);
