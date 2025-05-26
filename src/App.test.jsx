@@ -5,3 +5,5 @@ describe("Setup test", () => {
     expect(1 + 1).toBe(2);
   });
 });
+
+//http://vitest.dev/guide/
