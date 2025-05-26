@@ -24,7 +24,7 @@ const ProductDetails = () => {
   // NOTE -  RENDERING PRODUCT DATA ON PAGE
   //dummy product
   const productId = "huda-beauty-creamy-kohl-eyeliner";
-  const variantId = "v/very-vanta";
+  const variantId = "very-vanta";
   // Find product with matching ID and variant
   const product =
     products.length > 0 &&
