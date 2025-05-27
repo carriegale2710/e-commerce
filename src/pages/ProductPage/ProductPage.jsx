@@ -49,7 +49,7 @@ const ProductPage = () => {
           <ProductDetails />
         </section>
         <section className={classes.reviews}>
-          <h1>User Reviews</h1>
+          <h2>User Reviews</h2>
           <p>
             Personal Bonus Idea for later: user Review section below the product
             details, with form to create a new review
