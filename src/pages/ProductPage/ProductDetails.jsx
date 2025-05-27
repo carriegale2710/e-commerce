@@ -22,9 +22,13 @@ const ProductDetails = () => {
   // console.log(JSON.stringify(products, null, 2)); //just to preview data as a JSON
 
   // NOTE -  RENDERING PRODUCT DATA ON PAGE
-  //dummy product
+
+  //dummy product data - //FIXME - replace these with the id of the product cart that the user clicked on
   const productId = "huda-beauty-creamy-kohl-eyeliner";
   const variantId = "very-vanta";
+
+  console.log("Dummy product:" + product);
+
   // Find product with matching ID and variant
   const product =
     products.length > 0 &&
@@ -33,6 +37,8 @@ const ProductDetails = () => {
         product.id === productId &&
         product.variantData.some((variant) => variant.variantId === variantId)
     );
+
+  console.log("matching product:" + product);
 
   return (
     <div className={classes.page}>

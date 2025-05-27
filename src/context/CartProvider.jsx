@@ -36,49 +36,41 @@ export const CartProvider = ({ children }) => {
   2. check item already exists in array, -> use find() with specific product id
   3. if yes just increment the qty prop by 1 -> spread and update the qty prop
    */
-  const checkStockAvailability = (productItem, selectedVariant) => {
+  const checkStockAvailability = (productItem) => {
     const numOfItemsInCart = cart.filter(
       (item) =>
         item.id === productItem.id && item.selectedVariant === selectedVariant
     ).length;
 
-    const notEnoughStock =
-      productItem.stock[selectedVariant] > numOfItemsInCart;
-    //FIXME - stock prop does not exist
+    const isStockAvailable =
+      productItem.variantData.variantStockAvailable > numOfItemsInCart;
 
-    return notEnoughStock;
+    return isStockAvailable;
   };
 
   //NOTE - ADD AN ITEM TO THE CART
-  const addItemToCart = (productItem, selectedVariant) => {
-    //if not enough stock, display error message
-    if (!checkStockAvailability(productItem, selectedVariant)) {
-      // + selectedQty?
+  const addItemToCart = (selectedProduct) => {
+    console.log("selectedProductData passed into addItemToCart");
+    console.log(selectedProduct);
+    const productItem = selectedProduct;
+
+    if (!checkStockAvailability(productItem)) {
       console.log("run out of stock - check again later");
-      return false; //fail
+      return false;
     }
 
     //if enough stock, add to the cartList
     console.log(`Adding to cart: ${productItem.id}`);
-
-    //create new prop to identify what variant the user chose to add to cart
-    const itemWithVariant = {
-      ...productItem,
-      selectedVariant: selectedVariant,
-      // + selectedQty: selectedQty, ?
-    };
+    console.log(`Adding to cart: ${productItem}`);
 
     // update the cart with added item
-    setCart((prevCart) => [...prevCart, itemWithVariant]); // + selectedQty:?
+    setCart((prevCart) => [...prevCart, productItem]); // + selectedQty:?
 
-    return true; //successfully added
+    return true;
   };
 
   //NOTE - Remove 1 item from the cartList
   const removeItemFromCart = (itemId) => {
-    // decrement the qty -1
-    // if it turns to 0, then remove the ItemCard altogether
-    // (or should only show if qty >= 1)?
     const removedCart = (prevCart) =>
       prevCart.filter((item) => item.id !== itemId);
     setCart(removedCart);

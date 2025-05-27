@@ -4,20 +4,36 @@ import classes from "./VariantSelectForm.module.scss";
 
 const VariantSelectForm = ({ productInfo, variantData }) => {
   // props needed: product data user is interested in adding
-  // const allVariants = productInfo.variantData;
-  // console.log(productInfo);
-  //console.log(productInfo.name, variantData);
+  // console.log(productInfo.name, variantData[0].variantId);
 
-  const [selectedVariant, setSelectedVariant] = useState("");
+  const [selectedVariant, setSelectedVariant] = useState(
+    variantData[0].variantId //default variant will be first one in list
+  );
   const { addItemToCart, updateFavoritedItems, favsList } =
     useContext(CartContext);
   const isFavorited = favsList.includes(productInfo.id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Adding ${selectedVariant} to cart...`);
+    console.log(
+      `You want to add "${productInfo.name}" with shade "${selectedVariant}" to cart...`
+    );
+    // console.log(productInfo.name, variantData[0].variantId);
+    //TODO - add selected variantData
+    const selectedVariantData = variantData.map((v) => {
+      if (v.variantId == selectedVariant) {
+        return v;
+      }
+    });
+    console.log("HERE");
+    console.log(selectedVariantData[0]);
+
+    //reformat productInfo
+    const selectedProduct = productInfo;
+    selectedProduct.variantData = selectedVariantData[0];
+
     //call addItemToCart from cartContext here
-    const success = addItemToCart(productInfo, selectedVariant);
+    const success = addItemToCart(selectedProduct); //FIXME - pass into data only for specified product variant?
     if (!success) {
       alert(`Sorry, ${selectedVariant} is out of stock...`);
     } else {
