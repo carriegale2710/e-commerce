@@ -25,10 +25,13 @@ const ProductPage = () => {
   if (loading) {
     return <div className={classes.loading}>Loading...</div>;
   }
+  // if (loading) {
+  //   return <div className={classes.loading}>Loading product details...</div>;
+  // }
 
-  if (error) {
-    return <div className={classes.error}>Error loading products: {error}</div>;
-  }
+  // if (error) {
+  //   return <div className={classes.error}>Error loading products: {error}</div>;
+  // }
   // Find product with matching ID and variant
   const product = products?.find((product) => {
     console.log("Checking product:", product.id);
