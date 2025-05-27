@@ -1,6 +1,6 @@
 import { useState, useEffect, createContex, useContext } from "react";
 import { CartProvider } from "./context/CartProvider";
-import ProductsProvider from "./context/ProductsProvider"; // Changed to named import
+import ProductsProvider from "./context/ProductsProvider";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

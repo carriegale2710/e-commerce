@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ProductsContext } from "../../context/ProductsProvider";
 import ProductDetails from "./ProductDetails";
 import classes from "./ProductPage.module.scss";
 
@@ -16,12 +18,12 @@ const ProductPage = () => {
   const { productId, variantId } = useParams();
   console.log("URL Parameters:", { productId, variantId });
 
-  //const { products, loading, error } = useContext(ProductsContext);
-  // console.log("Available Products:", products);
+  const { products, loading, error } = useContext(ProductsContext);
+  console.log("Available Products:", products);
 
   // Check loading and error states first
   if (loading) {
-    return <div className={classes.loading}>Loading product details...</div>;
+    return <div className={classes.loading}>Loading...</div>;
   }
 
   if (error) {
