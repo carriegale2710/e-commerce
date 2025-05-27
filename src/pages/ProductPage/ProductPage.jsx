@@ -16,7 +16,7 @@ This page will show details about a single product:
 
 const ProductPage = () => {
   const { productId, variantId } = useParams();
-  console.log("URL Parameters:", { productId, variantId });
+  console.log("URL endpoint Parameters:", { productId, variantId });
 
   const { products, loading, error } = useContext(ProductsContext);
   console.log("Available Products:", products);
@@ -46,7 +46,7 @@ const ProductPage = () => {
       </header>
       <main className={classes.container}>
         <section>
-          <ProductDetails />
+          <ProductDetails productId={productId} variantId={variantId} />
         </section>
         <section className={classes.reviews}>
           <h2>User Reviews</h2>

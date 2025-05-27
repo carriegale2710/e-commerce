@@ -25,8 +25,7 @@ const VariantSelectForm = ({ productInfo, variantData }) => {
         return v;
       }
     });
-    console.log("HERE");
-    console.log(selectedVariantData[0]);
+    // console.log(selectedVariantData[0]);
 
     //reformat productInfo
     const selectedProduct = productInfo;

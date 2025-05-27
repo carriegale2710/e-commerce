@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-export const CartContext = createContext(/*null */); //context shared across entire pp
+export const CartContext = createContext(null); //context shared across entire pp
 
 export const CartProvider = ({ children }) => {
   //NOTE - state management

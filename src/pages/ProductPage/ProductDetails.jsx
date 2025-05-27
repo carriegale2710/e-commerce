@@ -6,7 +6,7 @@ import ProductHero from "../../components/ProductHero/ProductHero";
 import ProductDescription from "../../components/ProductDescription/ProductDescription";
 import classes from "./ProductPage.module.scss";
 
-const ProductDetails = () => {
+const ProductDetails = ({ productId, variantId }) => {
   //NOTE - STATE MANAGEMENT
   // const { products, loading, error } = useContext(ProductsContext);
   // these states are sent down as props to ProductsLoader (which does the actual fetching)
@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const [error, setError] = useState(null);
 
   // NOTE -  DEBUGGING
-  console.log("Set products:", products); //preview set array of objects
+  // console.log("Set products:", products); //preview set array of objects
   useEffect(() => {
     console.log("Products updated:", products); //preview CHANGED objects
   }, [products]);
@@ -23,11 +23,11 @@ const ProductDetails = () => {
 
   // NOTE -  RENDERING PRODUCT DATA ON PAGE
 
-  //dummy product data - //FIXME - replace these with the id of the product cart that the user clicked on
-  const productId = "huda-beauty-creamy-kohl-eyeliner";
-  const variantId = "very-vanta";
-
-  console.log("Dummy product:" + product);
+  if (!productId || !variantId) {
+    //dummy placeholder product data if faulty ids/not found
+    productId = "huda-beauty-creamy-kohl-eyeliner";
+    variantId = "very-vanta";
+  }
 
   // Find product with matching ID and variant
   const product =
@@ -38,7 +38,7 @@ const ProductDetails = () => {
         product.variantData.some((variant) => variant.variantId === variantId)
     );
 
-  console.log("matching product:" + product);
+  // console.log("matching product:" + product);
 
   return (
     <div className={classes.page}>

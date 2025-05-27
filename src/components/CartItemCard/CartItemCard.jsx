@@ -4,21 +4,11 @@ import classes from "./CartItemCard.module.scss";
 
 const CartItemCard = ({ productData }) => {
   //input - single specific product with a selectedVariant prop
-  console.log(productData);
-  const { selectedVariant, variantData } = productData;
-  console.log(selectedVariant, variantData);
+  // console.log(productData);
 
   const { cart, removeItemFromCart } = useContext(CartContext);
-  //console.log(cart);
-
-  const matchingVariant = () => {
-    //returns the variant object that user selected
-    return productData.variantData.find(
-      (variant) => variant.productVariantId === productData.selectedVariant
-    );
-  };
-
-  console.log(matchingVariant());
+  console.log("CURRENT CART");
+  console.log(cart);
 
   const handleClick = () => {
     console.log("clicked");
@@ -29,11 +19,11 @@ const CartItemCard = ({ productData }) => {
     <>
       <div className={`${classes.card}`}>
         <span className={classes.details}>
-          {/* <p>{productData.id}</p> */}
           <a href={productData.productURL}>
-            <p>{productData.name}</p>
+            <img src={productData.variantData.variantImgLink} alt="" />
+            <h3>{productData.name}</h3>
           </a>
-          <p>{`Shade: ${matchingVariant().variantName}`}</p>
+          <p>{`Shade: ${productData.variantData.variantName}`}</p>
           <p>${productData.price.toFixed(2)}</p>
           <p>Qty: {productData.quantity}</p>
         </span>
