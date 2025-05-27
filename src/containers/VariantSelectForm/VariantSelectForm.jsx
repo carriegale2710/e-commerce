@@ -69,10 +69,9 @@ const VariantSelectForm = ({ productInfo, variantData }) => {
           value={selectedVariant}
         >
           {variantData.map((v, index) => {
-            // console.log(`${v.productVariantId}-${index}`);
             return (
               <option
-                key={`${v.productVariantId}-${index}`}
+                key={`${productInfo.id}_${v.variantId}_${index}`}
                 value={v.variantId}
               >
                 Shade: {v.variantName}, In stock: {v.variantStockAvailable}{" "}
