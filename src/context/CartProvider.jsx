@@ -61,8 +61,6 @@ export const CartProvider = ({ children }) => {
 
     //if enough stock, add to the cartList
     console.log(`Adding to cart: ${productItem.id}`);
-    console.log(`Adding to cart: ${productItem}`);
-
     // update the cart with added item
     setCart((prevCart) => [...prevCart, productItem]); // + selectedQty:?
 

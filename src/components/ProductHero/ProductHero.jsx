@@ -1,4 +1,4 @@
-import VariantSelectForm from "../VariantSelectForm/VariantSelectForm";
+import VariantSelectForm from "../../containers/VariantSelectForm/VariantSelectForm";
 import classes from "./ProductHero.module.scss";
 
 const ProductHero = ({ productInfo }) => {

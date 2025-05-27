@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import VariantSelectForm from "../VariantSelectForm/VariantSelectForm";
+import VariantSelectForm from "../../containers/VariantSelectForm/VariantSelectForm";
 import classes from "./ProductCard.module.scss";
 
 const ProductCard = ({ productInfo }) => {

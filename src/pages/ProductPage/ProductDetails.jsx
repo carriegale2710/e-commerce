@@ -8,18 +8,14 @@ import classes from "./ProductPage.module.scss";
 
 const ProductDetails = ({ productId, variantId }) => {
   //NOTE - STATE MANAGEMENT
-  // const { products, loading, error } = useContext(ProductsContext);
-  // these states are sent down as props to ProductsLoader (which does the actual fetching)
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // NOTE -  DEBUGGING
-  // console.log("Set products:", products); //preview set array of objects
+  // NOTE -  re-renders page if products changes
   useEffect(() => {
-    console.log("Products updated:", products); //preview CHANGED objects
+    // console.log("Products updated:", products); //preview CHANGED objects
   }, [products]);
-  // console.log(JSON.stringify(products, null, 2)); //just to preview data as a JSON
 
   // NOTE -  RENDERING PRODUCT DATA ON PAGE
 
@@ -29,16 +25,16 @@ const ProductDetails = ({ productId, variantId }) => {
     variantId = "very-vanta";
   }
 
-  // Find product with matching ID and variant
+  // //todo - replace with updated variantData object from variantSelectForm
+  // Find product with matching ID and variant - checks if it exists
   const product =
     products.length > 0 &&
+    //returns matching element, is falsy if no match found
     products.find(
       (product) =>
         product.id === productId &&
         product.variantData.some((variant) => variant.variantId === variantId)
     );
-
-  // console.log("matching product:" + product);
 
   return (
     <div className={classes.page}>
